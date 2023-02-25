@@ -16,7 +16,14 @@ struct WorkListView: View {
     
     var body: some View {
         NavigationStack {
+            if workOrders.isEmpty {
+    
+                EmptyListView()
+                    .padding(.top, 75)
+            }
+            
             List {
+                
                 ForEach(workOrders) { order in
                     NavigationLink {
                         WorkOrderDetailView(workOrder: order)
