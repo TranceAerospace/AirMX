@@ -59,13 +59,6 @@ struct WorkListView: View {
         }
         try? moc.save()
     }
-    
-    func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy" // or choose your desired format
-        return dateFormatter.string(from: date)
-    }
-    
 }
 
 struct WorkListView_Previews: PreviewProvider {
