@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F7786FF29A9B1AF00F061AF /* WorkOrder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */; };
+		9F77870129A9B2E200F061AF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870029A9B2E200F061AF /* DataController.swift */; };
+		9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */; };
+		9F77870729AA52CF00F061AF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870629AA52CF00F061AF /* Helper.swift */; };
+		9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870829AA64E100F061AF /* WorkOrderRowView.swift */; };
+		9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */; };
 		9FE84F7929A9779200462595 /* PerformedXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* PerformedXApp.swift */; };
-		9FE84F7B29A9779200462595 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* ContentView.swift */; };
+		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
 		9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7F29A9779300462595 /* Preview Assets.xcassets */; };
+		9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F8629A979CC00462595 /* CheckboxView.swift */; };
+		9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84FA329A9ACA100462595 /* WorkListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9FE84F7529A9779200462595 /* PerformedX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerformedX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkOrder.xcdatamodel; sourceTree = "<group>"; };
+		9F77870029A9B2E200F061AF /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderDetailView.swift; sourceTree = "<group>"; };
+		9F77870629AA52CF00F061AF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		9F77870829AA64E100F061AF /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
+		9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderVerticalView.swift; sourceTree = "<group>"; };
+		9FE84F7529A9779200462595 /* AirMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE84F7829A9779200462595 /* PerformedXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformedXApp.swift; sourceTree = "<group>"; };
-		9FE84F7A29A9779200462595 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
 		9FE84F7C29A9779300462595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE84F7F29A9779300462595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9FE84F8629A979CC00462595 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		9FE84FA329A9ACA100462595 /* WorkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,10 +48,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F77870229AA3C8400F061AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9FE84FA329A9ACA100462595 /* WorkListView.swift */,
+				9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */,
+				9F77870A29AA678C00F061AF /* WorkOrderDetailViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9F77870529AA52B900F061AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F77870629AA52CF00F061AF /* Helper.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9F77870A29AA678C00F061AF /* WorkOrderDetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F77870829AA64E100F061AF /* WorkOrderRowView.swift */,
+				9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */,
+				9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */,
+			);
+			path = WorkOrderDetailViews;
+			sourceTree = "<group>";
+		};
 		9FE84F6C29A9779200462595 = {
 			isa = PBXGroup;
 			children = (
-				9FE84F7729A9779200462595 /* PerformedX */,
+				9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */,
+				9FE84F7729A9779200462595 /* AirMX */,
 				9FE84F7629A9779200462595 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +88,23 @@
 		9FE84F7629A9779200462595 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9FE84F7529A9779200462595 /* PerformedX.app */,
+				9FE84F7529A9779200462595 /* AirMX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9FE84F7729A9779200462595 /* PerformedX */ = {
+		9FE84F7729A9779200462595 /* AirMX */ = {
 			isa = PBXGroup;
 			children = (
+				9F77870529AA52B900F061AF /* Extensions */,
+				9F77870229AA3C8400F061AF /* Views */,
 				9FE84F7829A9779200462595 /* PerformedXApp.swift */,
-				9FE84F7A29A9779200462595 /* ContentView.swift */,
+				9F77870029A9B2E200F061AF /* DataController.swift */,
+				9FE84F8629A979CC00462595 /* CheckboxView.swift */,
 				9FE84F7C29A9779300462595 /* Assets.xcassets */,
 				9FE84F7E29A9779300462595 /* Preview Content */,
 			);
-			path = PerformedX;
+			path = AirMX;
 			sourceTree = "<group>";
 		};
 		9FE84F7E29A9779300462595 /* Preview Content */ = {
@@ -70,9 +118,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9FE84F7429A9779200462595 /* PerformedX */ = {
+		9FE84F7429A9779200462595 /* AirMX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9FE84F8329A9779300462595 /* Build configuration list for PBXNativeTarget "PerformedX" */;
+			buildConfigurationList = 9FE84F8329A9779300462595 /* Build configuration list for PBXNativeTarget "AirMX" */;
 			buildPhases = (
 				9FE84F7129A9779200462595 /* Sources */,
 				9FE84F7229A9779200462595 /* Frameworks */,
@@ -82,9 +130,9 @@
 			);
 			dependencies = (
 			);
-			name = PerformedX;
+			name = AirMX;
 			productName = PerformedX;
-			productReference = 9FE84F7529A9779200462595 /* PerformedX.app */;
+			productReference = 9FE84F7529A9779200462595 /* AirMX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +150,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9FE84F7029A9779200462595 /* Build configuration list for PBXProject "PerformedX" */;
+			buildConfigurationList = 9FE84F7029A9779200462595 /* Build configuration list for PBXProject "AirMX" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +163,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9FE84F7429A9779200462595 /* PerformedX */,
+				9FE84F7429A9779200462595 /* AirMX */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FE84F7B29A9779200462595 /* ContentView.swift in Sources */,
+				9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */,
+				9F77870129A9B2E200F061AF /* DataController.swift in Sources */,
+				9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */,
+				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
+				9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */,
+				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,
 				9FE84F7929A9779200462595 /* PerformedXApp.swift in Sources */,
+				9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */,
+				9F7786FF29A9B1AF00F061AF /* WorkOrder.xcdatamodeld in Sources */,
+				9F77870729AA52CF00F061AF /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +376,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9FE84F7029A9779200462595 /* Build configuration list for PBXProject "PerformedX" */ = {
+		9FE84F7029A9779200462595 /* Build configuration list for PBXProject "AirMX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9FE84F8129A9779300462595 /* Debug */,
@@ -329,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9FE84F8329A9779300462595 /* Build configuration list for PBXNativeTarget "PerformedX" */ = {
+		9FE84F8329A9779300462595 /* Build configuration list for PBXNativeTarget "AirMX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9FE84F8429A9779300462595 /* Debug */,
@@ -339,6 +395,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */,
+			);
+			currentVersion = 9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */;
+			path = WorkOrder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9FE84F6D29A9779200462595 /* Project object */;
 }
