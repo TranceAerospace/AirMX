@@ -24,7 +24,7 @@ struct WorkOrderDetailView: View {
     var body: some View {
         ScrollView {
             
-            WorkOrderRowView(label: "Date Performed:", passedItem: Helper.convert(toString: workOrder.datePerformed))
+            WorkOrderRowView(label: "Date Performed:", passedItem: workOrder.datePerformed)
             WorkOrderRowView(label: "Aircraft Hobbs:", passedItem: workOrder.hobbs)
             WorkOrderRowView(label: "Aircraft Cycles:", passedItem: workOrder.cycles)
             
