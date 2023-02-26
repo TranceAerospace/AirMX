@@ -14,6 +14,7 @@
 		9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870829AA64E100F061AF /* WorkOrderRowView.swift */; };
 		9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */; };
 		9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */; };
+		9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E56129AA9CCA00A1808D /* AddPartsView.swift */; };
 		9FE84F7929A9779200462595 /* PerformedXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* PerformedXApp.swift */; };
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		9F77870829AA64E100F061AF /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
 		9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderVerticalView.swift; sourceTree = "<group>"; };
 		9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListView.swift; sourceTree = "<group>"; };
+		9F97E56129AA9CCA00A1808D /* AddPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartsView.swift; sourceTree = "<group>"; };
 		9FE84F7529A9779200462595 /* AirMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE84F7829A9779200462595 /* PerformedXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformedXApp.swift; sourceTree = "<group>"; };
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */,
 				9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */,
 				9F77870A29AA678C00F061AF /* WorkOrderDetailViews */,
+				9F97E56129AA9CCA00A1808D /* AddPartsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */,
 				9F77870129A9B2E200F061AF /* DataController.swift in Sources */,
 				9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */,
+				9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */,
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
 				9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */,
 				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,

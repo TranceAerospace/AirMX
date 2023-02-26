@@ -49,7 +49,9 @@ struct WorkListView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
+                    if !workOrders.isEmpty {
+                        EditButton()
+                    }
                 }
             }
             

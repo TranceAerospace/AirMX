@@ -14,6 +14,10 @@ struct AddWorkOrderView: View {
     @State private var aircraftHobbs = ""
     @State private var aircraftCycles = ""
     @State private var workNotes = ""
+    
+    @State private var showingPartsScreen = false
+    @State private var partNumber = ""
+    @State private var partSerialNumber = ""
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -28,6 +32,23 @@ struct AddWorkOrderView: View {
                 Section("Enter Work Performed Below") {
                     TextEditor(text: $workNotes)
                 }
+                
+                Section("Parts") {
+                    
+                    Button {
+                        showingPartsScreen.toggle()
+                    } label: {
+                        Text("Click to add Parts")
+                    }
+                        .sheet(isPresented: $showingPartsScreen) {
+                            AddPartsView()
+                        }
+                    
+                        //TextField("Part Number", text: $partNumber)
+                        //TextField("Serial Number", text: $partSerialNumber)
+                    
+                }
+                
             }
             .padding(.bottom)
             .autocorrectionDisabled(true)
