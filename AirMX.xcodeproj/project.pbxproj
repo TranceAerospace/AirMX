@@ -15,7 +15,7 @@
 		9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */; };
 		9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */; };
 		9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E56129AA9CCA00A1808D /* AddPartsView.swift */; };
-		9FE84F7929A9779200462595 /* PerformedXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* PerformedXApp.swift */; };
+		9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* AirMXApp.swift */; };
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
 		9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7F29A9779300462595 /* Preview Assets.xcassets */; };
@@ -33,7 +33,7 @@
 		9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListView.swift; sourceTree = "<group>"; };
 		9F97E56129AA9CCA00A1808D /* AddPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartsView.swift; sourceTree = "<group>"; };
 		9FE84F7529A9779200462595 /* AirMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FE84F7829A9779200462595 /* PerformedXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformedXApp.swift; sourceTree = "<group>"; };
+		9FE84F7829A9779200462595 /* AirMXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirMXApp.swift; sourceTree = "<group>"; };
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
 		9FE84F7C29A9779300462595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE84F7F29A9779300462595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			children = (
 				9F77870529AA52B900F061AF /* Extensions */,
 				9F77870229AA3C8400F061AF /* Views */,
-				9FE84F7829A9779200462595 /* PerformedXApp.swift */,
+				9FE84F7829A9779200462595 /* AirMXApp.swift */,
 				9F77870029A9B2E200F061AF /* DataController.swift */,
 				9FE84F8629A979CC00462595 /* CheckboxView.swift */,
 				9FE84F7C29A9779300462595 /* Assets.xcassets */,
@@ -198,7 +198,7 @@
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
 				9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */,
 				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,
-				9FE84F7929A9779200462595 /* PerformedXApp.swift in Sources */,
+				9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */,
 				9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */,
 				9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */,
 				9F7786FF29A9B1AF00F061AF /* WorkOrder.xcdatamodeld in Sources */,
