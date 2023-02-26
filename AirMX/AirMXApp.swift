@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct PerformedXApp: App {
+struct AirMX: App {
     @StateObject private var dataController = DataController()
     
     var body: some Scene {

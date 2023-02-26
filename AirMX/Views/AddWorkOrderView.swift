@@ -70,11 +70,20 @@ struct AddWorkOrderView: View {
                 Button() {
                     let newWorkOrder = AircraftWorkOrder(context: moc)
                     newWorkOrder.id = UUID()
-                    newWorkOrder.datePerformed = Date()
-                    newWorkOrder.tailNumber = tailNumber
-                    newWorkOrder.hobbs = aircraftHobbs
-                    newWorkOrder.cycles = aircraftCycles
-                    newWorkOrder.workNotes = workNotes
+                    
+                    // Crude way to test random dates
+                    /*
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "MM/dd/yyyy"
+                        let olddate = formatter.date(from: "12/25/2022")
+                     */
+                    
+                    newWorkOrder.datePerformed = Date().formatted(date: .abbreviated, time: .omitted)
+                    
+                    newWorkOrder.tailNumber = tailNumber.isEmpty ? "Missing Tail Number" : tailNumber
+                    newWorkOrder.hobbs = aircraftHobbs.isEmpty ? "Missing Hobbs Time" : aircraftHobbs
+                    newWorkOrder.cycles = aircraftCycles.isEmpty ? "Missing Cycles" : aircraftCycles
+                    newWorkOrder.workNotes = workNotes.isEmpty ? "Missing Notes" : workNotes
                     
                     
                     try? moc.save()
