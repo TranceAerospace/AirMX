@@ -1,6 +1,6 @@
 //
-//  PerformedXApp.swift
-//  PerformedX
+//  AirMXApp.swift
+//  AirMX
 //
 //  Created by Mark Trance on 2/24/23.
 //
