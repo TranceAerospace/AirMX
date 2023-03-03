@@ -18,7 +18,15 @@ struct Helper {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         return dateFormatter.string(from: fromDate)
     }
+    
+    static func toArray(_ set: NSSet?) -> [Part] {
+        guard let parts = set else { return [] }
+        let partsArray = parts.allObjects as! [Part]
+        return partsArray
+    }
 }
+
+
 
 
 
