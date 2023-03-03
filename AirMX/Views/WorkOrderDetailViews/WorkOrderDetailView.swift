@@ -15,6 +15,7 @@ struct WorkOrderDetailView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
     
+    
     func deleteWorkOrder() {
         moc.delete(workOrder)
         try? moc.save()
@@ -29,6 +30,9 @@ struct WorkOrderDetailView: View {
             WorkOrderRowView(label: "Aircraft Cycles:", passedItem: workOrder.cycles)
             
             WorkOrderVerticalView(label: "Work Performed:", passedItem: workOrder.workNotes)
+           
+            WorkOrderRowView(label: "Parts", passedItem: Helper.toArray(workOrder.parts)[0].partNumberOff)
+            
         }
         .padding(.top)
         .navigationTitle(workOrder.tailNumber ?? "Unknown Aircraft")
