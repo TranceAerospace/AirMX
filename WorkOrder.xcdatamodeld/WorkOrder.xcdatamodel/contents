@@ -7,5 +7,13 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="tailNumber" optional="YES" attributeType="String"/>
         <attribute name="workNotes" optional="YES" attributeType="String"/>
+        <relationship name="parts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Part" inverseName="workOrder" inverseEntity="Part"/>
+    </entity>
+    <entity name="Part" representedClassName="Part" syncable="YES" codeGenerationType="class">
+        <attribute name="partNumberOff" optional="YES" attributeType="String"/>
+        <attribute name="partNumberOn" optional="YES" attributeType="String"/>
+        <attribute name="serialNumberOff" optional="YES" attributeType="String"/>
+        <attribute name="serialNumberOn" optional="YES" attributeType="String"/>
+        <relationship name="workOrder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AircraftWorkOrder" inverseName="parts" inverseEntity="AircraftWorkOrder"/>
     </entity>
 </model>
