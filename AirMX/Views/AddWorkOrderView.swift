@@ -10,6 +10,8 @@ import SwiftUI
 struct AddWorkOrderView: View {
     
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    
     @State private var tailNumber = ""
     @State private var aircraftHobbs = ""
     @State private var aircraftCycles = ""
@@ -18,7 +20,7 @@ struct AddWorkOrderView: View {
     @State private var showingPartsScreen = false
     @State private var partNumber = ""
     @State private var partSerialNumber = ""
-    @Environment(\.dismiss) var dismiss
+    @State private var newPart: Part?
     
     var body: some View {
         NavigationStack {
@@ -26,7 +28,9 @@ struct AddWorkOrderView: View {
                 Section("Aircraft Info") {
                     TextField("Tail Number", text: $tailNumber)
                     TextField("Aircraft Hobbs", text: $aircraftHobbs)
+                        .keyboardType(.decimalPad)
                     TextField("Aircraft Cycles", text: $aircraftCycles)
+                        .keyboardType(.decimalPad)
                 }
                 
                 Section("Enter Work Performed Below") {
@@ -40,15 +44,11 @@ struct AddWorkOrderView: View {
                     } label: {
                         Text("Click to add Parts")
                     }
-                        .sheet(isPresented: $showingPartsScreen) {
-                            AddPartsView()
-                        }
-                    
-                        //TextField("Part Number", text: $partNumber)
-                        //TextField("Serial Number", text: $partSerialNumber)
-                    
+                    .sheet(isPresented: $showingPartsScreen) {
+                        
+                            AddPartsView(newPart: $newPart)
+                    }
                 }
-                
             }
             .padding(.bottom)
             .autocorrectionDisabled(true)
@@ -66,16 +66,15 @@ struct AddWorkOrderView: View {
                         .cornerRadius(8)
                 }
                 
-                
                 Button() {
                     let newWorkOrder = AircraftWorkOrder(context: moc)
                     newWorkOrder.id = UUID()
                     
-                    // Crude way to test random dates
+                        // Crude way to test random dates
                     /*
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "MM/dd/yyyy"
-                        let olddate = formatter.date(from: "12/25/2022")
+                     let formatter = DateFormatter()
+                     formatter.dateFormat = "MM/dd/yyyy"
+                     let olddate = formatter.date(from: "12/25/2022")
                      */
                     
                     newWorkOrder.datePerformed = Date().formatted(date: .abbreviated, time: .omitted)
@@ -85,6 +84,9 @@ struct AddWorkOrderView: View {
                     newWorkOrder.cycles = aircraftCycles.isEmpty ? "Missing Cycles" : aircraftCycles
                     newWorkOrder.workNotes = workNotes.isEmpty ? "Missing Notes" : workNotes
                     
+                    if let newPart {
+                        newWorkOrder.addToParts(newPart)
+                    }
                     
                     try? moc.save()
                     dismiss()
