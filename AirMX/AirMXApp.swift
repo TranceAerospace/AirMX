@@ -9,12 +9,11 @@ import SwiftUI
 
 @main
 struct AirMX: App {
-    @StateObject private var dataController = DataController()
     
     var body: some Scene {
         WindowGroup {
             WorkListView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environment(\.managedObjectContext, DataController.shared.container.viewContext)
         }
     }
 }

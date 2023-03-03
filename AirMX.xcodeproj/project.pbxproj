@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F63734929AD8EA3009C37BD /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63734829AD8EA3009C37BD /* Part.swift */; };
 		9F7786FF29A9B1AF00F061AF /* WorkOrder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */; };
 		9F77870129A9B2E200F061AF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870029A9B2E200F061AF /* DataController.swift */; };
 		9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F63734829AD8EA3009C37BD /* Part.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
 		9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkOrder.xcdatamodel; sourceTree = "<group>"; };
 		9F77870029A9B2E200F061AF /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderDetailView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F63734729AD8E96009C37BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F63734829AD8EA3009C37BD /* Part.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9F77870229AA3C8400F061AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		9FE84F7729A9779200462595 /* AirMX */ = {
 			isa = PBXGroup;
 			children = (
+				9F63734729AD8E96009C37BD /* Model */,
 				9F77870529AA52B900F061AF /* Extensions */,
 				9F77870229AA3C8400F061AF /* Views */,
 				9FE84F7829A9779200462595 /* AirMXApp.swift */,
@@ -195,6 +206,7 @@
 				9F77870129A9B2E200F061AF /* DataController.swift in Sources */,
 				9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */,
 				9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */,
+				9F63734929AD8EA3009C37BD /* Part.swift in Sources */,
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
 				9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */,
 				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,
