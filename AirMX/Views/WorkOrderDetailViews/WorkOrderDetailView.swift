@@ -31,9 +31,14 @@ struct WorkOrderDetailView: View {
             
             WorkOrderVerticalView(label: "Work Performed:", passedItem: workOrder.workNotes)
            
-            WorkOrderRowView(label: "Parts", passedItem: Helper.toArray(workOrder.parts)[0].partNumberOff)
+            // TODO: FIX - Will crash app if a part is not assigned, uncomment to test
+            //WorkOrderRowView(label: "Parts", passedItem: Helper.toArray(workOrder.parts)[0].partNumberOff)
             
         }
+        // Used to test parts
+//        .onAppear {
+//            print(workOrder.parts?.allObjects)
+//        }
         .padding(.top)
         .navigationTitle(workOrder.tailNumber ?? "Unknown Aircraft")
         .alert("Delete Book", isPresented: $showingDeleteAlert) {
