@@ -28,7 +28,7 @@ struct WorkListView: View {
             
             List(workOrder) { section in
                 
-                Section(header: Text(section.id!)) {
+                Section(header: Text(section.id ?? "No date Added")) {
                     ForEach(section) { order in
                         NavigationLink {
                             WorkOrderDetailView(workOrder: order)
