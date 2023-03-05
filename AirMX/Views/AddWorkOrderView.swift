@@ -20,7 +20,8 @@ struct AddWorkOrderView: View {
     @State private var showingPartsScreen = false
     @State private var partNumber = ""
     @State private var partSerialNumber = ""
-    @State private var newPart: Part?
+
+    @State var newWorkOrder: AircraftWorkOrder?
     
     var body: some View {
         NavigationStack {
@@ -45,17 +46,23 @@ struct AddWorkOrderView: View {
                         Text("Click to add Parts")
                     }
                     .sheet(isPresented: $showingPartsScreen) {
-                        
-                            AddPartsView(newPart: $newPart)
+                        AddPartsView(newWorkOrder: $newWorkOrder)
                     }
                 }
             }
             .padding(.bottom)
             .autocorrectionDisabled(true)
             .navigationTitle("New Work Order")
+            .onAppear {
+                let newEntity = AircraftWorkOrder(context: moc)
+                 newWorkOrder = newEntity
+            }
             
             HStack {
                 Button() {
+                    if let newWorkOrder {
+                        moc.delete(newWorkOrder)
+                    }
                     dismiss()
                 } label: {
                     Text("Cancel")
@@ -67,9 +74,6 @@ struct AddWorkOrderView: View {
                 }
                 
                 Button() {
-                    let newWorkOrder = AircraftWorkOrder(context: moc)
-                    newWorkOrder.id = UUID()
-                    
                         // Crude way to test random dates
                     /*
                      let formatter = DateFormatter()
@@ -77,18 +81,16 @@ struct AddWorkOrderView: View {
                      let olddate = formatter.date(from: "12/25/2022")
                      */
                     
-                    newWorkOrder.datePerformed = Date().formatted(date: .abbreviated, time: .omitted)
+                    newWorkOrder?.id = UUID()
+                    newWorkOrder?.datePerformed = Date().formatted(date: .abbreviated, time: .omitted)
                     
-                    newWorkOrder.tailNumber = tailNumber.isEmpty ? "Missing Tail Number" : tailNumber
-                    newWorkOrder.hobbs = aircraftHobbs.isEmpty ? "Missing Hobbs Time" : aircraftHobbs
-                    newWorkOrder.cycles = aircraftCycles.isEmpty ? "Missing Cycles" : aircraftCycles
-                    newWorkOrder.workNotes = workNotes.isEmpty ? "Missing Notes" : workNotes
-                    
-                    if let newPart {
-                        newWorkOrder.addToParts(newPart)
-                    }
+                    newWorkOrder?.tailNumber = tailNumber.isEmpty ? "Missing Tail Number" : tailNumber
+                    newWorkOrder?.hobbs = aircraftHobbs.isEmpty ? "Missing Hobbs Time" : aircraftHobbs
+                    newWorkOrder?.cycles = aircraftCycles.isEmpty ? "Missing Cycles" : aircraftCycles
+                    newWorkOrder?.workNotes = workNotes.isEmpty ? "Missing Notes" : workNotes
                     
                     try? moc.save()
+                    print(newWorkOrder?.parts?.allObjects)
                     dismiss()
                 } label: {
                     Text("Save")
