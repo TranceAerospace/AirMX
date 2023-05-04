@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9F63734929AD8EA3009C37BD /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63734829AD8EA3009C37BD /* Part.swift */; };
-		9F7786FF29A9B1AF00F061AF /* WorkOrder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */; };
-		9F77870129A9B2E200F061AF /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870029A9B2E200F061AF /* DataController.swift */; };
 		9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */; };
 		9F77870729AA52CF00F061AF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870629AA52CF00F061AF /* Helper.swift */; };
 		9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870829AA64E100F061AF /* WorkOrderRowView.swift */; };
 		9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */; };
+		9F8E5D802A032EF3004C65A1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D7F2A032EF3004C65A1 /* FirebaseAuth */; };
+		9F8E5D822A032EF3004C65A1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D812A032EF3004C65A1 /* FirebaseFirestore */; };
+		9F8E5D842A032EF3004C65A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D832A032EF3004C65A1 /* FirebaseFirestoreSwift */; };
+		9F8E5D862A032FBA004C65A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */; };
+		9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */; };
 		9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */; };
 		9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E56129AA9CCA00A1808D /* AddPartsView.swift */; };
+		9FC9A82629B6DAD90041D76A /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9A82529B6DAD90041D76A /* PDFView.swift */; };
 		9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* AirMXApp.swift */; };
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
@@ -26,14 +30,16 @@
 
 /* Begin PBXFileReference section */
 		9F63734829AD8EA3009C37BD /* Part.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
-		9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkOrder.xcdatamodel; sourceTree = "<group>"; };
-		9F77870029A9B2E200F061AF /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderDetailView.swift; sourceTree = "<group>"; };
 		9F77870629AA52CF00F061AF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		9F77870829AA64E100F061AF /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
 		9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderVerticalView.swift; sourceTree = "<group>"; };
+		9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftWorkOrder.swift; sourceTree = "<group>"; };
 		9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListView.swift; sourceTree = "<group>"; };
 		9F97E56129AA9CCA00A1808D /* AddPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartsView.swift; sourceTree = "<group>"; };
+		9FC9A82529B6DAD90041D76A /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		9FC9B95B29CC69BE004794C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9FE84F7529A9779200462595 /* AirMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE84F7829A9779200462595 /* AirMXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirMXApp.swift; sourceTree = "<group>"; };
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
@@ -48,6 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8E5D802A032EF3004C65A1 /* FirebaseAuth in Frameworks */,
+				9F8E5D822A032EF3004C65A1 /* FirebaseFirestore in Frameworks */,
+				9F8E5D842A032EF3004C65A1 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				9F63734829AD8EA3009C37BD /* Part.swift */,
+				9FC9A82529B6DAD90041D76A /* PDFView.swift */,
+				9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,7 +106,6 @@
 		9FE84F6C29A9779200462595 = {
 			isa = PBXGroup;
 			children = (
-				9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */,
 				9FE84F7729A9779200462595 /* AirMX */,
 				9FE84F7629A9779200462595 /* Products */,
 			);
@@ -112,11 +122,12 @@
 		9FE84F7729A9779200462595 /* AirMX */ = {
 			isa = PBXGroup;
 			children = (
+				9FC9B95B29CC69BE004794C4 /* Info.plist */,
+				9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */,
 				9F63734729AD8E96009C37BD /* Model */,
 				9F77870529AA52B900F061AF /* Extensions */,
 				9F77870229AA3C8400F061AF /* Views */,
 				9FE84F7829A9779200462595 /* AirMXApp.swift */,
-				9F77870029A9B2E200F061AF /* DataController.swift */,
 				9FE84F8629A979CC00462595 /* CheckboxView.swift */,
 				9FE84F7C29A9779300462595 /* Assets.xcassets */,
 				9FE84F7E29A9779300462595 /* Preview Content */,
@@ -148,6 +159,11 @@
 			dependencies = (
 			);
 			name = AirMX;
+			packageProductDependencies = (
+				9F8E5D7F2A032EF3004C65A1 /* FirebaseAuth */,
+				9F8E5D812A032EF3004C65A1 /* FirebaseFirestore */,
+				9F8E5D832A032EF3004C65A1 /* FirebaseFirestoreSwift */,
+			);
 			productName = PerformedX;
 			productReference = 9FE84F7529A9779200462595 /* AirMX.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 9FE84F6C29A9779200462595;
+			packageReferences = (
+				9F8E5D7E2A032EF3004C65A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 9FE84F7629A9779200462595 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,6 +211,7 @@
 			files = (
 				9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */,
 				9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */,
+				9F8E5D862A032FBA004C65A1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,17 +223,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */,
-				9F77870129A9B2E200F061AF /* DataController.swift in Sources */,
 				9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */,
 				9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */,
 				9F63734929AD8EA3009C37BD /* Part.swift in Sources */,
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
+				9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */,
 				9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */,
+				9FC9A82629B6DAD90041D76A /* PDFView.swift in Sources */,
 				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,
 				9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */,
 				9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */,
 				9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */,
-				9F7786FF29A9B1AF00F061AF /* WorkOrder.xcdatamodeld in Sources */,
 				9F77870729AA52CF00F061AF /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +366,7 @@
 				DEVELOPMENT_TEAM = 8TUF73A8Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = AirMX/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -375,7 +395,7 @@
 				DEVELOPMENT_TEAM = 8TUF73A8Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = AirMX/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -416,18 +436,34 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		9F7786FD29A9B1AF00F061AF /* WorkOrder.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */,
-			);
-			currentVersion = 9F7786FE29A9B1AF00F061AF /* WorkOrder.xcdatamodel */;
-			path = WorkOrder.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		9F8E5D7E2A032EF3004C65A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
 		};
-/* End XCVersionGroup section */
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F8E5D7F2A032EF3004C65A1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F8E5D7E2A032EF3004C65A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9F8E5D812A032EF3004C65A1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F8E5D7E2A032EF3004C65A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9F8E5D832A032EF3004C65A1 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F8E5D7E2A032EF3004C65A1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9FE84F6D29A9779200462595 /* Project object */;
 }

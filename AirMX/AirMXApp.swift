@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct AirMX: App {
     
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             WorkListView()
-                .environment(\.managedObjectContext, DataController.shared.container.viewContext)
         }
     }
 }

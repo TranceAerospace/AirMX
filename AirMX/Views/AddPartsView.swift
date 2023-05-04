@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddPartsView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.managedObjectContext) var moc
     
     @State private var partNumberOff = ""
     @State private var serialNumberOff = ""
@@ -18,7 +17,7 @@ struct AddPartsView: View {
     
     @State private var showAnotherPart = false
     @State private var newPart: Part?
-    @Binding var newWorkOrder: AircraftWorkOrder?
+    //@Binding var newWorkOrder: AircraftWorkOrder?
     
     
     var body: some View {
@@ -49,20 +48,20 @@ struct AddPartsView: View {
                 if !showAnotherPart {
                     // TODO: Clean up and possibly extract these buttons.
                     Button {
-                        if let newPart, newWorkOrder != nil {
-                            
-                            newPart.partNumberOff = partNumberOff.isEmpty ? "No old p/n" : partNumberOff
-                            newPart.serialNumberOff = serialNumberOff.isEmpty ? "No old s/n": serialNumberOff
-                            newPart.partNumberOn = partNumberOn.isEmpty ? "no new p/n" : partNumberOn
-                            newPart.serialNumberOn = serialNumberOn.isEmpty ? "no new s/n": serialNumberOn
-                            
-                            newWorkOrder?.addToParts(newPart)
-                            try? moc.save()
-                            print(newPart.partNumberOff)
-                            
-                            showAnotherPart = true
-                            clearOutTextFields()
-                        }
+//                        //if let newPart, newWorkOrder != nil {
+//
+//                            newPart.partNumberOff = partNumberOff.isEmpty ? "No old p/n" : partNumberOff
+//                            newPart.serialNumberOff = serialNumberOff.isEmpty ? "No old s/n": serialNumberOff
+//                            newPart.partNumberOn = partNumberOn.isEmpty ? "no new p/n" : partNumberOn
+//                            newPart.serialNumberOn = serialNumberOn.isEmpty ? "no new s/n": serialNumberOn
+//
+//                           // newWorkOrder?.addToParts(newPart)
+//
+//                            print(newPart.partNumberOff)
+//
+//                            showAnotherPart = true
+//                            clearOutTextFields()
+                       // }
                         
                     } label: {
                         Text("Add Part")
@@ -75,17 +74,17 @@ struct AddPartsView: View {
                 } else {
                     Button {
                         
-                        let anotherPart = Part(context: moc)
+                       
                         
-                        anotherPart.partNumberOff = partNumberOff.isEmpty ? "No old p/n" : partNumberOff
-                        anotherPart.serialNumberOff = serialNumberOff.isEmpty ? "No old s/n": serialNumberOff
-                        anotherPart.partNumberOn = partNumberOn.isEmpty ? "no new p/n" : partNumberOn
-                        anotherPart.serialNumberOn = serialNumberOn.isEmpty ? "no new s/n": serialNumberOn
+//                        anotherPart.partNumberOff = partNumberOff.isEmpty ? "No old p/n" : partNumberOff
+//                        anotherPart.serialNumberOff = serialNumberOff.isEmpty ? "No old s/n": serialNumberOff
+//                        anotherPart.partNumberOn = partNumberOn.isEmpty ? "no new p/n" : partNumberOn
+//                        anotherPart.serialNumberOn = serialNumberOn.isEmpty ? "no new s/n": serialNumberOn
+//
+//                        newWorkOrder?.addToParts(anotherPart)
                         
-                        newWorkOrder?.addToParts(anotherPart)
-                        try? moc.save()
                         
-                        print(newWorkOrder?.parts?.allObjects)
+                        //print(newWorkOrder?.parts?.allObjects)
                         clearOutTextFields()
                         
                     } label: {
@@ -100,10 +99,6 @@ struct AddPartsView: View {
             }
         }
         .presentationDetents([.medium])
-        .onAppear {
-            let newPartItem = Part(context: moc)
-            newPart = newPartItem
-        }
     }
     
     func clearOutTextFields() {

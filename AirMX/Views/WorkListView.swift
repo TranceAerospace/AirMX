@@ -9,45 +9,35 @@ import SwiftUI
 
 struct WorkListView: View {
     
-    @Environment(\.managedObjectContext) var moc
-    
-    // Old fetch request, leaving as a placeholder for now
-    //@FetchRequest(sortDescriptors: [SortDescriptor(\.datePerformed)]) var workOrders: //FetchedResults<AircraftWorkOrder>
-    
-    @SectionedFetchRequest(sectionIdentifier: \.datePerformed, sortDescriptors: [SortDescriptor(\.datePerformed), SortDescriptor(\.tailNumber), SortDescriptor(\.hobbs)]) private var workOrder: SectionedFetchResults<String?, AircraftWorkOrder>
     
     @State private var showingAddScreen = false
+    @State private var listOfWords = Array.init(repeating: "words", count: 5)
     
     var body: some View {
         NavigationStack {
-            if workOrder.isEmpty {
-                
+            if listOfWords.isEmpty {
+
                 EmptyListView()
                     .padding(.top, 75)
             }
             
-            List(workOrder) { section in
-                
-                Section(header: Text(section.id ?? "No date Added")) {
-                    ForEach(section) { order in
-                        NavigationLink {
-                            WorkOrderDetailView(workOrder: order)
-                        } label: {
-                            
-                            VStack(alignment: .leading) {
-                                Text(order.tailNumber ?? "No Tail Number")
-                                    .font(.headline)
-                                Text(order.hobbs ?? "No hobbs listed")
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    }
-                    .onDelete { indexSet in
-                        withAnimation {
-                            deleteWorkOrder(at: indexSet, for: section)
-                        }
-                    }
-                }
+            List($listOfWords, id: \.self, editActions: .delete) { $item in
+                Text(item)
+//                Section(header: Text(section.id ?? "No date Added")) {
+//                    ForEach(section) { order in
+//                        NavigationLink {
+//                            WorkOrderDetailView(workOrder: order)
+//                        } label: {
+//
+//                            VStack(alignment: .leading) {
+//                                Text(order.tailNumber ?? "No Tail Number")
+//                                    .font(.headline)
+//                                Text(order.hobbs ?? "No hobbs listed")
+//                                    .foregroundColor(.secondary)
+//                            }
+//                        }
+//                    }
+//                }
             }
             .navigationTitle("Aircraft Work Orders")
             .toolbar {
@@ -60,7 +50,7 @@ struct WorkListView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if !workOrder.isEmpty {
+                    if !listOfWords.isEmpty {
                         EditButton()
                     }
                 }
@@ -69,16 +59,6 @@ struct WorkListView: View {
         }
         .sheet(isPresented: $showingAddScreen) {
             AddWorkOrderView()
-        }
-    }
-    
-    func deleteWorkOrder(at offsets: IndexSet, for section: SectionedFetchResults<String?, AircraftWorkOrder>.Element) {
-        offsets.map { section[$0] }.forEach(moc.delete)
-        
-        do {
-            try moc.save()
-        } catch {
-            fatalError("Unresolved error \(error.localizedDescription)")
         }
     }
 }
