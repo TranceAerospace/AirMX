@@ -17,7 +17,8 @@ struct AirMX: App {
     
     var body: some Scene {
         WindowGroup {
-            WorkListView()
+            MainView()
+                //.environmentObject(WorkOrderStore())
         }
     }
 }

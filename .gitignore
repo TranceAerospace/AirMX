@@ -1,13 +1,14 @@
-# Created by https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods
-# Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode,cocoapods
+# Created by https://www.toptal.com/developers/gitignore/api/swift,firebase,swiftpackagemanager,xcode,swiftpm
+# Edit at https://www.toptal.com/developers/gitignore?templates=swift,firebase,swiftpackagemanager,xcode,swiftpm
 
-### CocoaPods ###
-## CocoaPods GitIgnore Template
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
 
-# CocoaPods - Only use to conserve bandwidth / Save time on Pushing
-#           - Also handy if you have a large number of dependant pods
-#           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
-Pods/
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
 
 ### Swift ###
 # Xcode
@@ -93,6 +94,15 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+### SwiftPackageManager ###
+Packages
+xcuserdata
+*.xcodeproj
+
+
+### GoogleInfo-pList ###
+GooogleService-Info.plist
+
 ### Xcode ###
 
 ## Xcode 8 and earlier
@@ -106,4 +116,4 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/swift,xcode,cocoapods
+# End of https://www.toptal.com/developers/gitignore/api/swift,firebase,swiftpackagemanager,xcode,swiftpm

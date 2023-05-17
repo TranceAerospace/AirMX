@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4112A0FC45E00511140 /* LoginView.swift */; };
+		9F5DB4142A0FC48700511140 /* LoginViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4132A0FC48700511140 /* LoginViewVM.swift */; };
+		9F5DB4162A0FC4C700511140 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4152A0FC4C700511140 /* HeaderView.swift */; };
+		9F5DB4182A10281D00511140 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4172A10281D00511140 /* RegisterView.swift */; };
+		9F5DB41B2A10286A00511140 /* RegisterViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB41A2A10286A00511140 /* RegisterViewVM.swift */; };
+		9F5DB41D2A1028AD00511140 /* AirMXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB41C2A1028AD00511140 /* AirMXButton.swift */; };
+		9F5DB41F2A10293300511140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB41E2A10293200511140 /* User.swift */; };
+		9F5DB4252A110CE700511140 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4242A110CE700511140 /* MainView.swift */; };
+		9F5DB4282A110D1300511140 /* MainViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4272A110D1300511140 /* MainViewVM.swift */; };
+		9F5DB42A2A110DD500511140 /* WorkOrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4292A110DD500511140 /* WorkOrderListView.swift */; };
+		9F5DB42C2A110DE100511140 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB42B2A110DE100511140 /* ProfileView.swift */; };
+		9F5DB42E2A110E3300511140 /* WorkOrderListViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB42D2A110E3300511140 /* WorkOrderListViewVM.swift */; };
 		9F63734929AD8EA3009C37BD /* Part.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63734829AD8EA3009C37BD /* Part.swift */; };
+		9F71C1472A145B5C005EC729 /* ProfileViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F71C1462A145B5C005EC729 /* ProfileViewVM.swift */; };
+		9F71C14D2A146471005EC729 /* AddWorkOrderViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F71C14C2A146471005EC729 /* AddWorkOrderViewVM.swift */; };
 		9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */; };
 		9F77870729AA52CF00F061AF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870629AA52CF00F061AF /* Helper.swift */; };
-		9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870829AA64E100F061AF /* WorkOrderRowView.swift */; };
-		9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */; };
 		9F8E5D802A032EF3004C65A1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D7F2A032EF3004C65A1 /* FirebaseAuth */; };
 		9F8E5D822A032EF3004C65A1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D812A032EF3004C65A1 /* FirebaseFirestore */; };
 		9F8E5D842A032EF3004C65A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D832A032EF3004C65A1 /* FirebaseFirestoreSwift */; };
 		9F8E5D862A032FBA004C65A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */; };
 		9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */; };
-		9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */; };
+		9F8E5D8A2A034D00004C65A1 /* WorkOrderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E5D892A034D00004C65A1 /* WorkOrderStore.swift */; };
+		9F97E56029AA7B8D00A1808D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */; };
 		9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E56129AA9CCA00A1808D /* AddPartsView.swift */; };
-		9FC9A82629B6DAD90041D76A /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9A82529B6DAD90041D76A /* PDFView.swift */; };
 		9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* AirMXApp.swift */; };
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
@@ -29,16 +41,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F5DB4112A0FC45E00511140 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9F5DB4132A0FC48700511140 /* LoginViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewVM.swift; sourceTree = "<group>"; };
+		9F5DB4152A0FC4C700511140 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		9F5DB4172A10281D00511140 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		9F5DB41A2A10286A00511140 /* RegisterViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewVM.swift; sourceTree = "<group>"; };
+		9F5DB41C2A1028AD00511140 /* AirMXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirMXButton.swift; sourceTree = "<group>"; };
+		9F5DB41E2A10293200511140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9F5DB4242A110CE700511140 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9F5DB4272A110D1300511140 /* MainViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewVM.swift; sourceTree = "<group>"; };
+		9F5DB4292A110DD500511140 /* WorkOrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderListView.swift; sourceTree = "<group>"; };
+		9F5DB42B2A110DE100511140 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9F5DB42D2A110E3300511140 /* WorkOrderListViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderListViewVM.swift; sourceTree = "<group>"; };
 		9F63734829AD8EA3009C37BD /* Part.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part.swift; sourceTree = "<group>"; };
+		9F71C1462A145B5C005EC729 /* ProfileViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewVM.swift; sourceTree = "<group>"; };
+		9F71C14C2A146471005EC729 /* AddWorkOrderViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderViewVM.swift; sourceTree = "<group>"; };
 		9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderDetailView.swift; sourceTree = "<group>"; };
 		9F77870629AA52CF00F061AF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		9F77870829AA64E100F061AF /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
-		9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderVerticalView.swift; sourceTree = "<group>"; };
 		9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftWorkOrder.swift; sourceTree = "<group>"; };
-		9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListView.swift; sourceTree = "<group>"; };
+		9F8E5D892A034D00004C65A1 /* WorkOrderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderStore.swift; sourceTree = "<group>"; };
+		9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		9F97E56129AA9CCA00A1808D /* AddPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartsView.swift; sourceTree = "<group>"; };
-		9FC9A82529B6DAD90041D76A /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		9FC9B95B29CC69BE004794C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9FE84F7529A9779200462595 /* AirMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE84F7829A9779200462595 /* AirMXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirMXApp.swift; sourceTree = "<group>"; };
@@ -63,24 +87,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F5DB4102A0FC44E00511140 /* Login View */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB4112A0FC45E00511140 /* LoginView.swift */,
+				9F5DB4132A0FC48700511140 /* LoginViewVM.swift */,
+			);
+			path = "Login View";
+			sourceTree = "<group>";
+		};
+		9F5DB4192A10285600511140 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB4172A10281D00511140 /* RegisterView.swift */,
+				9F5DB41A2A10286A00511140 /* RegisterViewVM.swift */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
+		9F5DB4202A10296C00511140 /* PartsView */ = {
+			isa = PBXGroup;
+			children = (
+				9F97E56129AA9CCA00A1808D /* AddPartsView.swift */,
+			);
+			path = PartsView;
+			sourceTree = "<group>";
+		};
+		9F5DB4212A10297F00511140 /* Custom Button */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB41C2A1028AD00511140 /* AirMXButton.swift */,
+			);
+			path = "Custom Button";
+			sourceTree = "<group>";
+		};
+		9F5DB4262A110D0100511140 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB4242A110CE700511140 /* MainView.swift */,
+				9F5DB4272A110D1300511140 /* MainViewVM.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		9F63734729AD8E96009C37BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9F63734829AD8EA3009C37BD /* Part.swift */,
-				9FC9A82529B6DAD90041D76A /* PDFView.swift */,
 				9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */,
+				9F8E5D892A034D00004C65A1 /* WorkOrderStore.swift */,
+				9F5DB41E2A10293200511140 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9F71C1482A145C60005EC729 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				9F71C1462A145B5C005EC729 /* ProfileViewVM.swift */,
+				9F5DB42B2A110DE100511140 /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		9F71C1492A146068005EC729 /* WorkOrderListView */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB4292A110DD500511140 /* WorkOrderListView.swift */,
+				9F5DB42D2A110E3300511140 /* WorkOrderListViewVM.swift */,
+			);
+			path = WorkOrderListView;
+			sourceTree = "<group>";
+		};
+		9F71C14A2A1460F3005EC729 /* WorkOrderDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */,
+			);
+			path = WorkOrderDetailView;
+			sourceTree = "<group>";
+		};
+		9F71C14B2A14623A005EC729 /* AddWorkOrderView */ = {
+			isa = PBXGroup;
+			children = (
+				9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */,
+				9F71C14C2A146471005EC729 /* AddWorkOrderViewVM.swift */,
+			);
+			path = AddWorkOrderView;
 			sourceTree = "<group>";
 		};
 		9F77870229AA3C8400F061AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9F71C14B2A14623A005EC729 /* AddWorkOrderView */,
+				9F71C14A2A1460F3005EC729 /* WorkOrderDetailView */,
+				9F71C1492A146068005EC729 /* WorkOrderListView */,
+				9F5DB4102A0FC44E00511140 /* Login View */,
+				9F5DB4262A110D0100511140 /* MainView */,
+				9F5DB4192A10285600511140 /* RegisterView */,
+				9F71C1482A145C60005EC729 /* ProfileView */,
+				9F5DB4212A10297F00511140 /* Custom Button */,
+				9F5DB4202A10296C00511140 /* PartsView */,
 				9FE84FA329A9ACA100462595 /* WorkListView.swift */,
-				9F97E55F29AA7B8D00A1808D /* DefaultListView.swift */,
-				9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */,
-				9F77870A29AA678C00F061AF /* WorkOrderDetailViews */,
-				9F97E56129AA9CCA00A1808D /* AddPartsView.swift */,
+				9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */,
+				9F5DB4152A0FC4C700511140 /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,16 +201,6 @@
 				9F77870629AA52CF00F061AF /* Helper.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9F77870A29AA678C00F061AF /* WorkOrderDetailViews */ = {
-			isa = PBXGroup;
-			children = (
-				9F77870829AA64E100F061AF /* WorkOrderRowView.swift */,
-				9F77870329AA45F200F061AF /* WorkOrderDetailView.swift */,
-				9F77870B29AA67D600F061AF /* WorkOrderVerticalView.swift */,
-			);
-			path = WorkOrderDetailViews;
 			sourceTree = "<group>";
 		};
 		9FE84F6C29A9779200462595 = {
@@ -223,18 +323,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */,
-				9F77870929AA64E100F061AF /* WorkOrderRowView.swift in Sources */,
 				9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */,
+				9F5DB42E2A110E3300511140 /* WorkOrderListViewVM.swift in Sources */,
+				9F5DB41D2A1028AD00511140 /* AirMXButton.swift in Sources */,
+				9F5DB41B2A10286A00511140 /* RegisterViewVM.swift in Sources */,
+				9F71C14D2A146471005EC729 /* AddWorkOrderViewVM.swift in Sources */,
 				9F63734929AD8EA3009C37BD /* Part.swift in Sources */,
+				9F5DB42C2A110DE100511140 /* ProfileView.swift in Sources */,
+				9F5DB4252A110CE700511140 /* MainView.swift in Sources */,
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
+				9F8E5D8A2A034D00004C65A1 /* WorkOrderStore.swift in Sources */,
 				9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */,
-				9F77870C29AA67D600F061AF /* WorkOrderVerticalView.swift in Sources */,
-				9FC9A82629B6DAD90041D76A /* PDFView.swift in Sources */,
+				9F5DB4182A10281D00511140 /* RegisterView.swift in Sources */,
+				9F71C1472A145B5C005EC729 /* ProfileViewVM.swift in Sources */,
+				9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */,
 				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,
 				9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */,
-				9F97E56029AA7B8D00A1808D /* DefaultListView.swift in Sources */,
+				9F97E56029AA7B8D00A1808D /* EmptyListView.swift in Sources */,
+				9F5DB4282A110D1300511140 /* MainViewVM.swift in Sources */,
 				9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */,
+				9F5DB42A2A110DD500511140 /* WorkOrderListView.swift in Sources */,
+				9F5DB41F2A10293300511140 /* User.swift in Sources */,
 				9F77870729AA52CF00F061AF /* Helper.swift in Sources */,
+				9F5DB4142A0FC48700511140 /* LoginViewVM.swift in Sources */,
+				9F5DB4162A0FC4C700511140 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +479,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirMX/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -396,6 +509,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirMX/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

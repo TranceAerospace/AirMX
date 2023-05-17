@@ -7,13 +7,12 @@
 
 import Foundation
 
-struct AircraftWorkOrderr {
-    let id = UUID()
+struct AircraftWorkOrder: Identifiable, Codable, Hashable {
+    let id: String
     let hobbs: String
     let cycles: String
     let tailNumber: String
-    let datePerformed: String
+    let datePerformed: TimeInterval
     let workNotes: String
-    let parts: [Part]
-    
+    //let parts: [Part]?
 }
