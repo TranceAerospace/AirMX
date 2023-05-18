@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F195E392A15966F00743CE6 /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */; };
 		9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4112A0FC45E00511140 /* LoginView.swift */; };
 		9F5DB4142A0FC48700511140 /* LoginViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4132A0FC48700511140 /* LoginViewVM.swift */; };
 		9F5DB4162A0FC4C700511140 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4152A0FC4C700511140 /* HeaderView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
 		9F5DB4112A0FC45E00511140 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9F5DB4132A0FC48700511140 /* LoginViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewVM.swift; sourceTree = "<group>"; };
 		9F5DB4152A0FC4C700511140 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				9F5DB4242A110CE700511140 /* MainView.swift */,
 				9F5DB4272A110D1300511140 /* MainViewVM.swift */,
+				9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -189,8 +192,8 @@
 				9F5DB4212A10297F00511140 /* Custom Button */,
 				9F5DB4202A10296C00511140 /* PartsView */,
 				9FE84FA329A9ACA100462595 /* WorkListView.swift */,
-				9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */,
 				9F5DB4152A0FC4C700511140 /* HeaderView.swift */,
+				9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				9F5DB4282A110D1300511140 /* MainViewVM.swift in Sources */,
 				9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */,
 				9F5DB42A2A110DD500511140 /* WorkOrderListView.swift in Sources */,
+				9F195E392A15966F00743CE6 /* WorkOrderRowView.swift in Sources */,
 				9F5DB41F2A10293300511140 /* User.swift in Sources */,
 				9F77870729AA52CF00F061AF /* Helper.swift in Sources */,
 				9F5DB4142A0FC48700511140 /* LoginViewVM.swift in Sources */,

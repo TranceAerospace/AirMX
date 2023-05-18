@@ -13,35 +13,38 @@ struct WorkOrderListView: View {
     @StateObject var viewModel: WorkOrderListViewVM
     @FirestoreQuery var orders: [AircraftWorkOrder]
     
-    
     init(userId: String) {
         // users/<id>/workOrders/<entries>
         self._orders = FirestoreQuery(collectionPath: "users/\(userId)/workOrders")
         self._viewModel = StateObject(wrappedValue: WorkOrderListViewVM(userId: userId))
     }
     
-    
     var body: some View {
         NavigationStack {
             VStack {
-                
                 if !orders.isEmpty {
+                    
                     List(orders, id: \.self) { order in
-                        NavigationLink(value: order) {
-                            // TODO
-                            Text(order.tailNumber)
-                        }
+                        Section(header: Text(Helper.getCurrentDate(from: order.datePerformed))) {
+                            NavigationLink(value: order) {
+                                // TODO
+                                WorkOrderRowView(workOrder: order)
+                            }
                             .swipeActions {
                                 Button("Delete") {
                                     viewModel.delete(id: order.id)
                                 }
                                 .tint(.red)
                             }
+                        }
+                    }
+                    .onAppear {
+                        $orders.predicates = [.order(by: "datePerformed")]
                     }
                     .navigationDestination(for: AircraftWorkOrder.self) { order in
                         WorkOrderDetailView(workOrder: order)
                     }
-                .listStyle(.plain)
+                    .listStyle(.plain)
                 }
                 else {
                     EmptyListView()

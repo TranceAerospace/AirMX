@@ -25,7 +25,13 @@ struct Helper {
         return partsArray
     }
     
-    
+    static func getCurrentDate(from time: TimeInterval) -> String {
+        let currentDate = Date(timeIntervalSinceReferenceDate: time)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        return dateFormatter.string(from: currentDate)
+    }
    
 }
 

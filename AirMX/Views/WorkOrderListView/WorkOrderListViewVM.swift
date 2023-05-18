@@ -20,7 +20,7 @@ class WorkOrderListViewVM: ObservableObject {
     }
     
     
-    /// Delete to do list item
+    /// Delete list item
     /// - Parameter id: Item id to delete
     func delete(id: String) {
         let db = Firestore.firestore()
