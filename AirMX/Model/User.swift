@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct User: Codable {
     let id: String
     let name: String
     let emailAddress: String
-    let joined: TimeInterval
+    let joined: Timestamp
 }

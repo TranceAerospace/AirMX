@@ -54,7 +54,7 @@ struct ProfileView: View {
             HStack {
                 Text("Member Since: ")
                     .bold()
-                Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
+                Text("\(Helper.convert(toString: user.joined.dateValue()))")
             }
             .padding()
         }

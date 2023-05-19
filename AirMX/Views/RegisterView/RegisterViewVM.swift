@@ -33,13 +33,22 @@ class RegisterViewVM: ObservableObject {
     }
     
     private func insertUserRecord(id: String) {
-        let newUser = User(id: id, name: name, emailAddress: email, joined: Date().timeIntervalSince1970)
+        let newUser = User(id: id, name: name, emailAddress: email, joined: Timestamp(date: Date()))
         
-        let db = Firestore.firestore()
-        
-        db.collection("users")
-            .document(id)
-            .setData(newUser.asDictionary())
+        do {
+            let db = Firestore.firestore()
+            
+            try db.collection("users").document(id).setData(from: newUser) { error in
+                if let error {
+                    print("Error saving user: \(error.localizedDescription)")
+                } else {
+                    print("User saved successfully")
+                }
+            }
+        } catch {
+            print("Error encoding user")
+        }
+        //newUser.asDictionary()
     }
     
     private func validate() -> Bool {

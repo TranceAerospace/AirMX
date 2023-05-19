@@ -24,11 +24,20 @@ class ProfileViewVM: ObservableObject {
                 return
             }
             
-            DispatchQueue.main.async {
-                self?.user = User(id: data["id"] as? String ?? "",
-                                  name: data["name"] as? String ?? "",
-                                  emailAddress: data["email"] as? String ?? "",
-                                  joined: data["joined"] as? TimeInterval ?? 0)
+            let decoder = Firestore.Decoder()
+            do {
+                let user = try decoder.decode(User.self, from: data)
+                
+                
+                DispatchQueue.main.async {
+                    self?.user = user
+                    //                                User(id: data["id"] as? String ?? "",
+                    //                                  name: data["name"] as? String ?? "",
+                    //                                  emailAddress: data["email"] as? String ?? "",
+                    //                                  joined: data["joined"] as? Timestamp ?? "")
+                }
+            } catch {
+                print("Error decoding USER.")
             }
         }
     }
