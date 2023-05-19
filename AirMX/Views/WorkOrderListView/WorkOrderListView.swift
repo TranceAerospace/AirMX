@@ -22,7 +22,9 @@ struct WorkOrderListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if !orders.isEmpty {
+                if orders.isEmpty {
+                    EmptyListView()
+                } else {
                     
                     List(orders, id: \.self) { order in
                         Section(header: Text(Helper.convert(toString: order.datePerformed.dateValue()))) {
@@ -38,16 +40,10 @@ struct WorkOrderListView: View {
                             }
                         }
                     }
-//                    .onAppear {
-//                        $orders.predicates = [.order(by: "datePerformed")]
-//                    }
                     .navigationDestination(for: AircraftWorkOrder.self) { order in
                         WorkOrderDetailView(workOrder: order)
                     }
                     .listStyle(.plain)
-                }
-                else {
-                    EmptyListView()
                 }
             }
             .navigationTitle("Aircraft Work Orders")
