@@ -32,7 +32,7 @@ class AddWorkOrderViewVM: ObservableObject {
         }
         //Create a model
         let newId = UUID().uuidString
-        let newItem = AircraftWorkOrder(id: newId, hobbs: aircraftHobbs, cycles: aircraftCycles, tailNumber: tailNumber, datePerformed: Date().timeIntervalSince1970, workNotes: workNotes)
+        let newItem = AircraftWorkOrder(id: newId, hobbs: aircraftHobbs, cycles: aircraftCycles, tailNumber: tailNumber, datePerformed: Timestamp(date: Date()), workNotes: workNotes)
         
         //Save model
         let db = Firestore.firestore()

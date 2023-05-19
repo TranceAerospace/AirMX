@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct AircraftWorkOrder: Identifiable, Codable, Hashable {
     let id: String
     let hobbs: String
     let cycles: String
     let tailNumber: String
-    let datePerformed: TimeInterval
+    let datePerformed: Timestamp
     let workNotes: String
     //let parts: [Part]?
 }

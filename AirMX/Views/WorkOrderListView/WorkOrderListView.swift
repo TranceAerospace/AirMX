@@ -25,7 +25,7 @@ struct WorkOrderListView: View {
                 if !orders.isEmpty {
                     
                     List(orders, id: \.self) { order in
-                        Section(header: Text(Helper.getCurrentDate(from: order.datePerformed))) {
+                        Section(header: Text(Helper.convert(toString: order.datePerformed.dateValue()))) {
                             NavigationLink(value: order) {
                                 // TODO
                                 WorkOrderRowView(workOrder: order)
@@ -38,9 +38,9 @@ struct WorkOrderListView: View {
                             }
                         }
                     }
-                    .onAppear {
-                        $orders.predicates = [.order(by: "datePerformed")]
-                    }
+//                    .onAppear {
+//                        $orders.predicates = [.order(by: "datePerformed")]
+//                    }
                     .navigationDestination(for: AircraftWorkOrder.self) { order in
                         WorkOrderDetailView(workOrder: order)
                     }
@@ -68,6 +68,6 @@ struct WorkOrderListView: View {
 
 struct WorkOrderListView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkOrderListView(userId: "fJa8Am01iwMdip38DBGHrAtat7H3")
+        WorkOrderListView(userId: "2DebW1oTlofVlk8J9WNNBkZbDmP2")
     }
 }

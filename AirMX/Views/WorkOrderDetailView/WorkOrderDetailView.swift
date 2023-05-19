@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CoreData
+import FirebaseFirestore
 
 struct WorkOrderDetailView: View {
     
@@ -23,7 +23,7 @@ struct WorkOrderDetailView: View {
     
     var body: some View {
         ScrollView {
-            //Text(workOrder.datePerformed)
+            Text(Helper.convert(toString: workOrder.datePerformed.dateValue()))
             VStack(alignment: .leading, spacing: 4) {
                 Text("Aircraft Hobbs: \(workOrder.hobbs)")
                 Text("Aircraft Cycles: \(workOrder.cycles)")
@@ -61,7 +61,7 @@ struct WorkOrderDetailView_Previews: PreviewProvider {
     //let order = WorkOrderStore()
     static var previews: some View {
         NavigationStack {
-            WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Date().timeIntervalSince1970, workNotes: "No notes"))
+            WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes"))
         }
         
         
