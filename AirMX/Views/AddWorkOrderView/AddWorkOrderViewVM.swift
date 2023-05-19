@@ -35,15 +35,20 @@ class AddWorkOrderViewVM: ObservableObject {
         let newItem = AircraftWorkOrder(id: newId, hobbs: aircraftHobbs, cycles: aircraftCycles, tailNumber: tailNumber, datePerformed: Timestamp(date: Date()), workNotes: workNotes)
         
         //Save model
-        let db = Firestore.firestore()
-        db.collection("users")
-            .document(uId)
-            .collection("workOrders")
-            .document(newId)
-            .setData(newItem.asDictionary())
-        
-        
+        do {
+            let db = Firestore.firestore()
+            try db.collection("users").document(uId) .collection("workOrders").document(newId).setData(from: newItem){ error in
+                if let error {
+                    print("Error saving new work order: \(error.localizedDescription)")
+                } else {
+                    print("Work Order saved successfully")
+                }
+            }
+        } catch {
+            print("Error encoding Work Order")
+        }
     }
+    
     // MARK: - Deprecated for the moment
     var canSave: Bool {
         guard !tailNumber.trimmingCharacters(in: .whitespaces).isEmpty, !aircraftHobbs.isEmpty, !aircraftCycles.isEmpty else {

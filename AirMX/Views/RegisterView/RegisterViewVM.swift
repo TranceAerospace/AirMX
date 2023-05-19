@@ -48,7 +48,6 @@ class RegisterViewVM: ObservableObject {
         } catch {
             print("Error encoding user")
         }
-        //newUser.asDictionary()
     }
     
     private func validate() -> Bool {
