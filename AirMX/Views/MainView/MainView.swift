@@ -23,12 +23,13 @@ struct MainView: View {
         }
         
     }
+    
     @ViewBuilder
     var accountView: some View {
         TabView {
             WorkOrderListView(userId: viewModel.currentUserId)
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Home", systemImage: "house.circle")
                 }
             
             ProfileView()
@@ -36,6 +37,7 @@ struct MainView: View {
                     Label("Profile", systemImage: "person.circle")
                 }
         }
+        .tint(Color(red: 10/255, green: 147/255, blue: 150/255))
     }
 }
 

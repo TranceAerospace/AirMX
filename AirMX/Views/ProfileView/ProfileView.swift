@@ -13,15 +13,32 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                if let user = viewModel.user {
-                    profile(user: user)
-                    
-                } else {
-                    Text("Loading Profile...")
+            ZStack {
+                Color(red: 233/255, green: 216/255, blue: 166/255, opacity: 0.3)
+                    .ignoresSafeArea(edges:[.top, .horizontal])
+                VStack {
+                    if let user = viewModel.user {
+                        profileDetails(user: user)
+                        
+                    } else {
+                        Text("Loading Profile...")
+                    }
                 }
+                .toolbar {
+                    ToolbarItem {
+                        
+                        Button {
+                            viewModel.logOut()
+                        } label: {
+                            Text("\(Image(systemName: "capslock.fill")) Logout")
+                            
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color(red: 174/255, green: 32/255, blue: 18/255))
+                    }
+                }
+                .navigationTitle("Profile")
             }
-            .navigationTitle("Profile")
         }
         .onAppear {
             viewModel.fetchUser()
@@ -29,7 +46,7 @@ struct ProfileView: View {
     }
     
     @ViewBuilder
-    func profile(user: User) -> some View {
+    func profileDetails(user: User) -> some View {
         //Avatar
         Image(systemName: "person.circle")
             .resizable()
@@ -54,17 +71,17 @@ struct ProfileView: View {
             HStack {
                 Text("Member Since: ")
                     .bold()
-                Text("\(Helper.convert(toString: user.joined.dateValue()))")
+                Text(Helper.convert(toString: user.joined.dateValue()))
             }
             .padding()
         }
         .padding()
         // Sign Out
-        Button("Log Out") {
-            viewModel.logOut()
-        }
-        .tint(.red)
-        .padding()
+        //        Button("Log Out") {
+        //            viewModel.logOut()
+        //        }
+        //        .tint(.red)
+        //        .padding()
         
         Spacer()
     }

@@ -15,64 +15,84 @@ struct AddWorkOrderView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section("Aircraft Info") {
-                    TextField("Tail Number", text: $viewModel.tailNumber)
-                    TextField("Aircraft Hobbs", text: $viewModel.aircraftHobbs)
-                        .keyboardType(.decimalPad)
-                    TextField("Aircraft Cycles", text: $viewModel.aircraftCycles)
-                        .keyboardType(.decimalPad)
-                }
+            ZStack {
+                Color(red: 233/255, green: 216/255, blue: 166/255, opacity: 0.3)
+                    .ignoresSafeArea()
                 
-                Section("Enter Work Performed Below") {
-                    TextEditor(text: $viewModel.workNotes)
-                }
-                
-                Section("Parts") {
-                    
-                }
-            }
-            .padding(.bottom)
-            .autocorrectionDisabled(true)
-            .navigationTitle("New Work Order")
-            
-            HStack {
-                Button() {
-                    
-                    dismiss()
-                } label: {
-                    Text("Cancel")
-                        .padding()
-                        .frame(width: 150, height: 44)
-                        .background(.pink)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                
-                Button() {
-                    
-                    if viewModel.canSave {
-                        viewModel.save()
-                        newItemPresented = false
-                        dismiss()
-                        
-                    } else {
-                        viewModel.showAlert = true
+                Form {
+                    Section("Aircraft Info") {
+                        TextField("Tail Number", text: $viewModel.tailNumber)
+                        TextField("Aircraft Hobbs", text: $viewModel.aircraftHobbs)
+                            .keyboardType(.decimalPad)
+                        TextField("Aircraft Cycles", text: $viewModel.aircraftCycles)
+                            .keyboardType(.decimalPad)
                     }
                     
-                    //dismiss()
-                } label: {
-                    Text("Save")
-                        .padding()
-                        .frame(width: 150, height: 44)
-                        .background(.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+                    Section("Enter Work Performed Below") {
+                        TextEditor(text: $viewModel.workNotes)
+                    }
+                    
+                    Section("Parts") {
+                        Button {
+                            viewModel.showPartsSheet.toggle()
+                        } label: {
+                            Label("Add Part", systemImage: "plus.circle.fill")
+                                .foregroundStyle(Color(red: 10/255, green: 147/255, blue: 150/255))
+                        }
+                        .sheet(isPresented: $viewModel.showPartsSheet) {
+                            Text("Presentation")
+                                .presentationDetents([.medium, .large])
+                                .presentationDragIndicator(.hidden)
+                        }
+                    }
                 }
-                .alert(isPresented: $viewModel.showAlert) {
-                    Alert(title: Text("Error"), message: Text("Please fill in all fields to add the work order."))
-                }
+                .scrollContentBackground(.hidden)
+                .padding(.bottom)
+                .autocorrectionDisabled(true)
+                .navigationTitle("New Work Order")
             }
+            
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button() {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                            .padding()
+                            .frame(width: 150, height: 44)
+                            .background(Color(red: 174/255, green: 32/255, blue: 18/255))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .shadow(radius: 2, x: 4, y: 4)
+                    }
+                }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        
+                        if viewModel.canSave {
+                            viewModel.save()
+                            newItemPresented = false
+                            dismiss()
+                            
+                        } else {
+                            viewModel.showAlert = true
+                        }
+                        
+                    } label: {
+                        Text("Save")
+                            .padding()
+                            .frame(width: 150, height: 44)
+                            .background(Color(red: 10/255, green: 147/255, blue: 150/255))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .shadow(radius: 2, x: 4, y: 4)
+                    }
+                    .alert(isPresented: $viewModel.showAlert) {
+                        Alert(title: Text("Error"), message: Text("Please fill in all fields to add the work order."))
+                    }
+                }
+            } //: Toolbar end
         }
     }
 }

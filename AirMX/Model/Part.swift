@@ -7,11 +7,9 @@
 
 import Foundation
 
-
-
-
-struct Part {
+struct Part: Codable, Hashable, Identifiable {
     
+    let id: String
     let partNumberOff: String
     let serialNumberOff: String
     let partNumberOn: String

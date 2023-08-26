@@ -15,5 +15,5 @@ struct AircraftWorkOrder: Identifiable, Codable, Hashable {
     let tailNumber: String
     let datePerformed: Timestamp
     let workNotes: String
-    //let parts: [Part]?
+    let parts: [Part]?
 }

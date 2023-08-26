@@ -61,7 +61,7 @@ struct WorkOrderDetailView_Previews: PreviewProvider {
     //let order = WorkOrderStore()
     static var previews: some View {
         NavigationStack {
-            WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes"))
+            WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
         }
         
         

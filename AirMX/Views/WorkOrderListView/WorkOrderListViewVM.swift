@@ -12,6 +12,7 @@ import FirebaseFirestore
 /// Primary Tab
 class WorkOrderListViewVM: ObservableObject {
     @Published var showingNewItemView = false
+    @Published var sortMethod = 0
     
     private let userId: String
     
