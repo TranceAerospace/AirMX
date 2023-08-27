@@ -14,10 +14,10 @@ struct EmptyListView: View {
             HStack {
                 Text("Tap the ")
                 Image(systemName: "plus")
-                    .foregroundColor(.green)
+                    .foregroundColor(.airMXGreen)
                 Text("at the top")
                 Image(systemName: "arrow.turn.right.up")
-                    .foregroundColor(.red)
+                    .foregroundColor(.airMXRed)
             }
             HStack {
                 Text("to get started!")

@@ -14,7 +14,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 233/255, green: 216/255, blue: 166/255, opacity: 0.3)
+                Color(.airMXBackground)
                     .ignoresSafeArea(edges:[.top, .horizontal])
                 VStack {
                     if let user = viewModel.user {
@@ -34,7 +34,7 @@ struct ProfileView: View {
                             
                         }
                         .buttonStyle(.borderedProminent)
-                        .tint(Color(red: 174/255, green: 32/255, blue: 18/255))
+                        .tint(Color(.airMXRed))
                     }
                 }
                 .navigationTitle("Profile")

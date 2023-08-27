@@ -30,7 +30,7 @@ struct WorkOrderListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 233/255, green: 216/255, blue: 166/255, opacity: 0.3)
+                Color(.airMXBackground)
                     .ignoresSafeArea(edges: [.top, .horizontal])
                 
                 VStack {
@@ -63,7 +63,7 @@ struct WorkOrderListView: View {
                         viewModel.showingNewItemView = true
                     } label: {
                         Image(systemName: "plus")
-                            .foregroundStyle(Color(red: 10/255, green: 147/255, blue: 150/255))
+                            .foregroundStyle(Color(.airMXGreen))
                     }
                     
                 }
@@ -73,7 +73,7 @@ struct WorkOrderListView: View {
             }
             //.toolbarBackground(.hidden, for: .tabBar)
             
-            .tint(Color(red: 0/255, green: 18/255, blue: 25/255))
+            .tint(Color(.airMXBlack))
         }
         
     }

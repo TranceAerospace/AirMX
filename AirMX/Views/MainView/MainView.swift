@@ -37,7 +37,7 @@ struct MainView: View {
                     Label("Profile", systemImage: "person.circle")
                 }
         }
-        .tint(Color(red: 10/255, green: 147/255, blue: 150/255))
+        .tint(Color(.airMXGreen))
     }
 }
 

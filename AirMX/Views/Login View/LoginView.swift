@@ -58,7 +58,7 @@ struct LogInView: View {
             }
             .background(Color(.airMXBackground))
         }
-        .tint(Color(red: 0/255, green: 18/255, blue: 25/255))
+        .tint(Color(.airMXBlack))
     }
 }
 
