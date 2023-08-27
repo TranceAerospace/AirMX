@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#warning("Add Visual Representation of Parts being added!")
+
 struct AddWorkOrderView: View {
     @StateObject var viewModel = AddWorkOrderViewVM()
     
@@ -16,34 +18,46 @@ struct AddWorkOrderView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(red: 233/255, green: 216/255, blue: 166/255, opacity: 0.3)
+                Color(.airMXBackground)
                     .ignoresSafeArea()
                 
                 Form {
-                    Section("Aircraft Info") {
+                    Section {
                         TextField("Tail Number", text: $viewModel.tailNumber)
                         TextField("Aircraft Hobbs", text: $viewModel.aircraftHobbs)
                             .keyboardType(.decimalPad)
                         TextField("Aircraft Cycles", text: $viewModel.aircraftCycles)
                             .keyboardType(.decimalPad)
+                    } header: {
+                        Text("Aircraft Info")
+                            .underline()
                     }
                     
-                    Section("Enter Work Performed Below") {
+                    Section {
                         TextEditor(text: $viewModel.workNotes)
+                    } header: {
+                        Text("Enter Work Performed Below")
+                            .underline()
                     }
                     
-                    Section("Parts") {
+                    
+                    Section {
                         Button {
                             viewModel.showPartsSheet.toggle()
                         } label: {
                             Label("Add Part", systemImage: "plus.circle.fill")
-                                .foregroundStyle(Color(red: 10/255, green: 147/255, blue: 150/255))
+                                .foregroundStyle(.airMXGreen)
                         }
                         .sheet(isPresented: $viewModel.showPartsSheet) {
-                            Text("Presentation")
-                                .presentationDetents([.medium, .large])
+                            AddPartsView(parts: $viewModel.parts)
+                                .presentationDetents([.height(400)])
                                 .presentationDragIndicator(.hidden)
+                                .interactiveDismissDisabled()
                         }
+                        
+                    } header: {
+                        Text("Parts")
+                            .underline()
                     }
                 }
                 .scrollContentBackground(.hidden)
@@ -60,7 +74,7 @@ struct AddWorkOrderView: View {
                         Text("Cancel")
                             .padding()
                             .frame(width: 150, height: 44)
-                            .background(Color(red: 174/255, green: 32/255, blue: 18/255))
+                            .background(.airMXRed)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                             .shadow(radius: 2, x: 4, y: 4)
@@ -83,7 +97,7 @@ struct AddWorkOrderView: View {
                         Text("Save")
                             .padding()
                             .frame(width: 150, height: 44)
-                            .background(Color(red: 10/255, green: 147/255, blue: 150/255))
+                            .background(.airMXGreen)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                             .shadow(radius: 2, x: 4, y: 4)

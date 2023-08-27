@@ -16,7 +16,7 @@ struct LogInView: View {
             VStack {
                 // Header
                 HeaderView(title: "AirMX", subtitle: "Keep track of your work!", angle: 15, background:
-                            Color(red: 174/255, green: 32/255, blue: 18/255))
+                            Color(.airMXRed))
                 
                 // Login Form
                 Form {
@@ -31,7 +31,7 @@ struct LogInView: View {
                         SecureField("Password", text: $viewModel.password)
                             .textFieldStyle(DefaultTextFieldStyle())
                         
-                        AirMXButton(title: "Log In", background: Color(red: 0/255, green: 95/255, blue: 115/255)) {
+                        AirMXButton(title: "Log In", background: Color(.airMXDarkGreen)) {
                             viewModel.login()
                         }
                         .shadow(radius: 2, x: 4, y: 4)
@@ -52,12 +52,11 @@ struct LogInView: View {
                     }
                     .bold()
                 }
+                .foregroundColor(Color(.airMXGreen))
                 .padding(.bottom, 20)
                 Spacer()
             }
-            .foregroundColor(Color(red: 10/255, green: 147/255, blue: 150/255))
-            .background(Color(red: 233/255, green: 216/255, blue: 166/255, opacity: 0.3))
-            
+            .background(Color(.airMXBackground))
         }
         .tint(Color(red: 0/255, green: 18/255, blue: 25/255))
     }

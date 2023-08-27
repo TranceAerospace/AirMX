@@ -15,7 +15,7 @@ class AddWorkOrderViewVM: ObservableObject {
     @Published var tailNumber = ""
     @Published var datePerformed = Date()
     @Published var workNotes = ""
-    //@Published var parts = [Part]()
+    @Published var parts = [Part]()
     
     @Published var showAlert = false
     @Published var showPartsSheet = false
@@ -34,7 +34,7 @@ class AddWorkOrderViewVM: ObservableObject {
         }
         //Create a model
         let newId = UUID().uuidString
-        let newItem = AircraftWorkOrder(id: newId, hobbs: aircraftHobbs, cycles: aircraftCycles, tailNumber: tailNumber, datePerformed: Timestamp(date: Date()), workNotes: workNotes, parts: nil)
+        let newItem = AircraftWorkOrder(id: newId, hobbs: aircraftHobbs, cycles: aircraftCycles, tailNumber: tailNumber, datePerformed: Timestamp(date: Date()), workNotes: workNotes, parts: parts)
         
         //Save model
         do {
