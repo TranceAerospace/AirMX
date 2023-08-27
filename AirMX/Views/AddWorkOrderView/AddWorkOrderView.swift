@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-#warning("Add Visual Representation of Parts being added!")
-
 struct AddWorkOrderView: View {
     @StateObject var viewModel = AddWorkOrderViewVM()
     
@@ -42,6 +40,15 @@ struct AddWorkOrderView: View {
                     
                     
                     Section {
+                        if viewModel.parts.isEmpty {
+                            Text("Add a part to see them listed here.")
+                                .foregroundStyle(Color.gray)
+                        } else {
+                            List(viewModel.parts) { part in
+                                Text(part.partNumberOn)
+                            }
+                        }
+                        
                         Button {
                             viewModel.showPartsSheet.toggle()
                         } label: {
