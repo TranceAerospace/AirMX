@@ -30,7 +30,6 @@
 		9F8E5D842A032EF3004C65A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9F8E5D832A032EF3004C65A1 /* FirebaseFirestoreSwift */; };
 		9F8E5D862A032FBA004C65A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */; };
 		9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */; };
-		9F8E5D8A2A034D00004C65A1 /* WorkOrderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E5D892A034D00004C65A1 /* WorkOrderStore.swift */; };
 		9F97E56029AA7B8D00A1808D /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */; };
 		9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F97E56129AA9CCA00A1808D /* AddPartsView.swift */; };
 		9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* AirMXApp.swift */; };
@@ -38,7 +37,6 @@
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
 		9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7F29A9779300462595 /* Preview Assets.xcassets */; };
 		9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F8629A979CC00462595 /* CheckboxView.swift */; };
-		9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84FA329A9ACA100462595 /* WorkListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +60,6 @@
 		9F77870629AA52CF00F061AF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		9F8E5D852A032FBA004C65A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftWorkOrder.swift; sourceTree = "<group>"; };
-		9F8E5D892A034D00004C65A1 /* WorkOrderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderStore.swift; sourceTree = "<group>"; };
 		9F97E55F29AA7B8D00A1808D /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		9F97E56129AA9CCA00A1808D /* AddPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartsView.swift; sourceTree = "<group>"; };
 		9FC9B95B29CC69BE004794C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -72,7 +69,6 @@
 		9FE84F7C29A9779300462595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE84F7F29A9779300462595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9FE84F8629A979CC00462595 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
-		9FE84FA329A9ACA100462595 /* WorkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +134,6 @@
 			children = (
 				9F63734829AD8EA3009C37BD /* Part.swift */,
 				9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */,
-				9F8E5D892A034D00004C65A1 /* WorkOrderStore.swift */,
 				9F5DB41E2A10293200511140 /* User.swift */,
 			);
 			path = Model;
@@ -191,7 +186,6 @@
 				9F71C1482A145C60005EC729 /* ProfileView */,
 				9F5DB4212A10297F00511140 /* Custom Button */,
 				9F5DB4202A10296C00511140 /* PartsView */,
-				9FE84FA329A9ACA100462595 /* WorkListView.swift */,
 				9F5DB4152A0FC4C700511140 /* HeaderView.swift */,
 				9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */,
 			);
@@ -335,7 +329,6 @@
 				9F5DB42C2A110DE100511140 /* ProfileView.swift in Sources */,
 				9F5DB4252A110CE700511140 /* MainView.swift in Sources */,
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
-				9F8E5D8A2A034D00004C65A1 /* WorkOrderStore.swift in Sources */,
 				9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */,
 				9F5DB4182A10281D00511140 /* RegisterView.swift in Sources */,
 				9F71C1472A145B5C005EC729 /* ProfileViewVM.swift in Sources */,
@@ -344,7 +337,6 @@
 				9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */,
 				9F97E56029AA7B8D00A1808D /* EmptyListView.swift in Sources */,
 				9F5DB4282A110D1300511140 /* MainViewVM.swift in Sources */,
-				9FE84FA429A9ACA100462595 /* WorkListView.swift in Sources */,
 				9F5DB42A2A110DD500511140 /* WorkOrderListView.swift in Sources */,
 				9F195E392A15966F00743CE6 /* WorkOrderRowView.swift in Sources */,
 				9F5DB41F2A10293300511140 /* User.swift in Sources */,
