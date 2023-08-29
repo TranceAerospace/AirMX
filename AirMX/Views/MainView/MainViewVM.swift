@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 
+#warning("Can not use @Observable, causes MainView to not swap after login")
 class MainViewVM: ObservableObject {
     @Published var currentUserId: String = ""
     private var handler: AuthStateDidChangeListenerHandle?

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct MainView: View {
     @StateObject var viewModel = MainViewVM()
@@ -27,8 +28,8 @@ struct MainView: View {
     @ViewBuilder
     var accountView: some View {
         TabView {
-            WorkOrderListView(userId: viewModel.currentUserId)
-                .tabItem {
+            WorkOrderListView(viewModel: WorkOrderListViewVM(userId: viewModel.currentUserId), orders: FirestoreQuery(collectionPath: "users/\(viewModel.currentUserId)/workOrders", predicates: [.order(by:"datePerformed", descending: true)]))
+                    .tabItem {
                     Label("Home", systemImage: "house.circle")
                 }
             

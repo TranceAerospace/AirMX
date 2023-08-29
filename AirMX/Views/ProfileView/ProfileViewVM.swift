@@ -16,6 +16,7 @@ class ProfileViewVM: ObservableObject {
     
     func fetchUser() {
         guard let userId = Auth.auth().currentUser?.uid else {
+            print("cannont find user")
             return
         }
         let db = Firestore.firestore()
@@ -24,6 +25,7 @@ class ProfileViewVM: ObservableObject {
                 return
             }
             
+            print(data)
             let decoder = Firestore.Decoder()
             do {
                 let user = try decoder.decode(User.self, from: data)

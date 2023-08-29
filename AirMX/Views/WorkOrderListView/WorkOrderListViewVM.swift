@@ -7,19 +7,22 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 /// ViewModel for list of items view
 /// Primary Tab
-class WorkOrderListViewVM: ObservableObject {
-    @Published var showingNewItemView = false
-    @Published var sortMethod = 0
+@Observable
+class WorkOrderListViewVM {
+    var showingNewItemView = false
+    var sortMethod = 0
     
     private let userId: String
+    
     
     init(userId: String) {
         self.userId = userId
     }
-    
+
     
     /// Delete list item
     /// - Parameter id: Item id to delete
@@ -33,3 +36,13 @@ class WorkOrderListViewVM: ObservableObject {
             .delete()
     }
 }
+
+
+// old init method putting here incase something breaks
+/*
+     init(userId: String) {
+         // users/<id>/workOrders/<entries>
+         self._orders = FirestoreQuery(collectionPath: "users/\(userId)/workOrders", predicates: [.order(by:"datePerformed", descending: true)])
+         //self._viewModel = StateObject(wrappedValue: WorkOrderListViewVM(userId: userId))
+     }
+ */

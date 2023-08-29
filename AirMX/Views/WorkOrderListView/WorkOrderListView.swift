@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 // TODO: - Design a custom row
 struct WorkOrderListView: View {
     
-    @StateObject var viewModel: WorkOrderListViewVM
+    @Bindable var viewModel: WorkOrderListViewVM
     @FirestoreQuery var orders: [AircraftWorkOrder]
     
     
@@ -19,13 +19,7 @@ struct WorkOrderListView: View {
             Helper.convert(toString: order.datePerformed.dateValue())
         }
     }
-    
-    
-    init(userId: String) {
-        // users/<id>/workOrders/<entries>
-        self._orders = FirestoreQuery(collectionPath: "users/\(userId)/workOrders", predicates: [.order(by:"datePerformed", descending: true)])
-        self._viewModel = StateObject(wrappedValue: WorkOrderListViewVM(userId: userId))
-    }
+
     
     var body: some View {
         NavigationStack {
@@ -63,12 +57,13 @@ struct WorkOrderListView: View {
                         viewModel.showingNewItemView = true
                     } label: {
                         Image(systemName: "plus")
+                            .symbolEffect(.pulse)
                             .foregroundStyle(Color(.airMXGreen))
                     }
                     
                 }
                 .sheet(isPresented: $viewModel.showingNewItemView) {
-                    AddWorkOrderView(newItemPresented: $viewModel.showingNewItemView)
+                    AddWorkOrderView()
                 }
             }
             //.toolbarBackground(.hidden, for: .tabBar)
@@ -78,13 +73,13 @@ struct WorkOrderListView: View {
         
     }
     
-    
+    #warning("Fix/combine these.")
     private func displayListByDate() -> some View {
         List {
             ForEach(groupedOrders.sorted(by: { $0.key > $1.key }), id: \.key) { key, value in
                 Section(header: Text(key)) {
                     ForEach(value, id: \.self) { order in
-                        NavigationLink(destination: WorkOrderDetailView(workOrder: order)) {
+                        NavigationLink(destination: WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: order))) {
                             WorkOrderRowView(workOrder: order)
                         }
                         .swipeActions {
@@ -114,7 +109,7 @@ struct WorkOrderListView: View {
                 if let ordersForTailNumber = groupedByTailNumber[tailNumber] {
                     Section(header: Text(tailNumber)) {
                         ForEach(ordersForTailNumber, id: \.self) { order in
-                            NavigationLink(destination: WorkOrderDetailView(workOrder: order)) {
+                            NavigationLink(destination: WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: order))) {
                                 WorkOrderRowView(workOrder: order)
                             }
                             .swipeActions {
@@ -134,5 +129,6 @@ struct WorkOrderListView: View {
 }
 
 #Preview {
-    WorkOrderListView(userId: "7T6crErX8rfapVLyKfc1l3a20UL2")
+    WorkOrderListView(viewModel: WorkOrderListViewVM(userId: "7T6crErX8rfapVLyKfc1l3a20UL2"), orders: FirestoreQuery(collectionPath: "users/7T6crErX8rfapVLyKfc1l3a20UL2/workOrders", predicates: [.order(by:"datePerformed", descending: true)]))
+
 }
