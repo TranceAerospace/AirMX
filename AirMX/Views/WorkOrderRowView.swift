@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseFirestore
-
+#warning("Still needs potential styling?")
 struct WorkOrderRowView: View {
     
     let workOrder: AircraftWorkOrder
@@ -33,9 +33,7 @@ struct WorkOrderRowView: View {
     }
 }
 
-struct WorkOrderRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkOrderRowView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
-            .previewLayout(.fixed(width: 300, height: 100))
-    }
+#Preview {
+    WorkOrderRowView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
+        .previewLayout(.fixed(width: 300, height: 100))
 }

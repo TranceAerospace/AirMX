@@ -29,11 +29,9 @@ struct EmptyListView: View {
     }
 }
 
-struct DefaultListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            EmptyListView()
-                .navigationTitle("Stuff")
-        }
+#Preview {
+    NavigationStack {
+        EmptyListView()
+            .navigationTitle("Stuff")
     }
 }

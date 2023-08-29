@@ -28,10 +28,9 @@ struct AirMXButton: View {
     }
 }
 
-struct TLButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AirMXButton(title: "Value", background: .pink) {
-            // Action
-        }
+#Preview {
+    AirMXButton(title: "Value", background: .pink) {
+        
     }
+    .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
 }

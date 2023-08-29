@@ -118,9 +118,7 @@ struct AddWorkOrderView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddWorkOrderView(newItemPresented: Binding(get: {return true} , set: { _ in
-        }))
-    }
+#Preview {
+    AddWorkOrderView(newItemPresented: Binding(get: {return true} , set: { _ in
+    }))
 }

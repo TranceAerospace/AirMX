@@ -133,8 +133,6 @@ struct WorkOrderListView: View {
     
 }
 
-struct WorkOrderListView_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkOrderListView(userId: "7T6crErX8rfapVLyKfc1l3a20UL2")
-    }
+#Preview {
+    WorkOrderListView(userId: "7T6crErX8rfapVLyKfc1l3a20UL2")
 }

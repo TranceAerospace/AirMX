@@ -93,18 +93,15 @@ struct AddPartsView: View {
     }
 }
 
-struct AddPartsView_Previews: PreviewProvider {
-    static var previews: some View {
-        let newPart = [Part]()
-        AddPartsView(parts: .constant(newPart))
-    }
+#Preview {
+    AddPartsView(parts: .constant([Part(id: "12312", partNumberOff: "112312", serialNumberOff: "12312", partNumberOn: "0980", serialNumberOn: "09098")]))
 }
 
 
 
 
 
-
+//MARK: - Remove this when needed
 //
 //struct AddPartsView: View {
 //    @Environment(\.dismiss) var dismiss

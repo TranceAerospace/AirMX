@@ -15,12 +15,6 @@ struct WorkOrderDetailView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
     
-    
-    func deleteWorkOrder() {
-        
-        dismiss()
-    }
-    
     var body: some View {
         ScrollView {
             Text(Helper.convert(toString: workOrder.datePerformed.dateValue()))
@@ -51,20 +45,20 @@ struct WorkOrderDetailView: View {
             }
         }
     }
+    
+    //TODO: - Not implemented
+    func deleteWorkOrder() {
+        
+        dismiss()
+    }
+    
+    
+    
 }
 
-
-
-
-
-struct WorkOrderDetailView_Previews: PreviewProvider {
-    //let order = WorkOrderStore()
-    static var previews: some View {
-        NavigationStack {
-            WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
-        }
-        
-        
+#Preview {
+    NavigationStack {
+        WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
     }
 }
 

@@ -37,9 +37,7 @@ struct HeaderView: View {
     }
 }
 
-struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderView(title: "Title", subtitle: "Subtitle", angle: 15, background: .blue)
-    }
+#Preview {
+    HeaderView(title: "Title", subtitle: "Subtitle", angle: 15, background: .blue)
 }
 
