@@ -9,8 +9,9 @@ import Foundation
 import Observation
 
 @Observable
-class WorkOrderDetailViewModel {
+class WorkOrderDetailVM {
     var workOrder: AircraftWorkOrder
+    var showingDeleteAlert = false
     
     init(workOrder: AircraftWorkOrder) {
         self.workOrder = workOrder

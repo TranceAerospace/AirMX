@@ -9,27 +9,23 @@ import SwiftUI
 import FirebaseFirestore
 
 struct WorkOrderDetailView: View {
-    
-    let workOrder: AircraftWorkOrder
+    @Bindable var vm: WorkOrderDetailVM
     
     @Environment(\.dismiss) var dismiss
-    @State private var showingDeleteAlert = false
     
     var body: some View {
         ScrollView {
-            Text(Helper.convert(toString: workOrder.datePerformed.dateValue()))
+            Text(Helper.convert(toString: vm.workOrder.datePerformed.dateValue()))
             VStack(alignment: .leading, spacing: 4) {
-                Text("Aircraft Hobbs: \(workOrder.hobbs)")
-                Text("Aircraft Cycles: \(workOrder.cycles)")
-                Text("Notes: \(workOrder.workNotes)")
+                Text("Aircraft Hobbs: \(vm.workOrder.hobbs)")
+                Text("Aircraft Cycles: \(vm.workOrder.cycles)")
+                Text("Notes: \(vm.workOrder.workNotes)")
             }
             .padding(.vertical, 8)
             
-            
-
         }
-        .navigationTitle(workOrder.tailNumber)
-        .alert("Delete Work Order", isPresented: $showingDeleteAlert) {
+        .navigationTitle(vm.workOrder.tailNumber)
+        .alert("Delete Work Order", isPresented: $vm.showingDeleteAlert) {
             Button("Delete", role: .destructive, action: deleteWorkOrder)
             Button("Cancel", role: .cancel) {}
         } message: {
@@ -38,7 +34,7 @@ struct WorkOrderDetailView: View {
         }
         .toolbar {
             Button {
-                showingDeleteAlert = true
+                vm.showingDeleteAlert = true
             } label: {
                 Label("Delete book", systemImage: "trash")
                     .foregroundColor(.red)
@@ -58,7 +54,7 @@ struct WorkOrderDetailView: View {
 
 #Preview {
     NavigationStack {
-        WorkOrderDetailView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
+        WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil)))
     }
 }
 

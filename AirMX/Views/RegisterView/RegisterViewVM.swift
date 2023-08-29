@@ -9,11 +9,12 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class RegisterViewVM: ObservableObject {
+@Observable
+class RegisterViewVM {
     
-    @Published var name = ""
-    @Published var email = ""
-    @Published var password = ""
+    var name = ""
+    var email = ""
+    var password = ""
     
     init() {}
     
