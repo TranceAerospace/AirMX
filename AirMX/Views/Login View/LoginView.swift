@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct LogInView: View {
     
-    @StateObject var viewModel = LoginViewVM()
+    @Bindable var viewModel = LoginViewVM()
     
     var body: some View {
         NavigationStack {
@@ -35,12 +37,27 @@ struct LogInView: View {
                             viewModel.login()
                         }
                         .shadow(radius: 2, x: 4, y: 4)
+                    
                     }
                 }
-                .frame(width: 400, height: 300)
+                .frame(width: 400, height: 260)
                 .shadow(radius: 5, x: 5, y: 5)
                 .scrollContentBackground(.hidden)
                 .offset(y: -50)
+                
+                //MARK: Temp Google Sign In Button
+                GoogleSignInButton {
+                    Task {
+                        do {
+                            try await viewModel.signInWithGoogle()
+                        } catch {
+                            
+                        }
+                    }
+                }
+                .frame(width: 300)
+            
+                
                 
                 // Create Account
                 VStack {
@@ -62,8 +79,7 @@ struct LogInView: View {
     }
 }
 
-struct LogInView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogInView()
-    }
+
+#Preview {
+    LogInView(viewModel: LoginViewVM())
 }
