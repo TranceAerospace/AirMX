@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct AddWorkOrderView: View {
-    @StateObject var viewModel = AddWorkOrderViewVM()
+    @Bindable var viewModel = AddWorkOrderViewVM()
     
     @Environment(\.dismiss) var dismiss
-    @Binding var newItemPresented: Bool
     
     var body: some View {
         NavigationStack {
@@ -93,7 +92,7 @@ struct AddWorkOrderView: View {
                         
                         if viewModel.canSave {
                             viewModel.save()
-                            newItemPresented = false
+                            //newItemPresented = false
                             dismiss()
                             
                         } else {
@@ -119,6 +118,5 @@ struct AddWorkOrderView: View {
 }
 
 #Preview {
-    AddWorkOrderView(newItemPresented: Binding(get: {return true} , set: { _ in
-    }))
+    AddWorkOrderView()
 }

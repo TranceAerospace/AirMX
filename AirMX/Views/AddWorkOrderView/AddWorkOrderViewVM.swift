@@ -9,16 +9,17 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class AddWorkOrderViewVM: ObservableObject {
-    @Published var aircraftHobbs = ""
-    @Published var aircraftCycles = ""
-    @Published var tailNumber = ""
-    @Published var datePerformed = Date()
-    @Published var workNotes = ""
-    @Published var parts = [Part]()
+@Observable
+class AddWorkOrderViewVM {
+    var aircraftHobbs = ""
+    var aircraftCycles = ""
+    var tailNumber = ""
+    var datePerformed = Date()
+    var workNotes = ""
+    var parts = [Part]()
     
-    @Published var showAlert = false
-    @Published var showPartsSheet = false
+    var showAlert = false
+    var showPartsSheet = false
     
     init() {}
     
