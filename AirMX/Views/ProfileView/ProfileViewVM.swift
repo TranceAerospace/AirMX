@@ -15,34 +15,11 @@ class ProfileViewVM {
     
     init() {}
     
-    func fetchUser() {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            print("cannot find user")
-            return
-        }
-        let db = Firestore.firestore()
-        db.collection("users").document(userId).getDocument { [weak self] snapshot, error in
-            guard let data = snapshot?.data(), error == nil else {
-                print("user not registered")
-                return
-            }
-            
-            print(data)
-            let decoder = Firestore.Decoder()
-            do {
-                let user = try decoder.decode(User.self, from: data)
-                
-                
-                DispatchQueue.main.async {
-                    self?.user = user
-                    // User(id: data["id"] as? String ?? "",
-                    // name: data["name"] as? String ?? "",
-                    // emailAddress: data["email"] as? String ?? "",
-                    // joined: data["joined"] as? Timestamp ?? "")
-                }
-            } catch {
-                print("Error decoding USER.")
-            }
+    func getUser() {
+        do {
+            user = try AuthManager.shared.getAuthenticatedUser()
+        } catch {
+            print(error)
         }
     }
     
@@ -54,3 +31,37 @@ class ProfileViewVM {
         }
     }
 }
+
+//MARK: - No longer used
+/*
+ func fetchUser() {
+ guard let userId = Auth.auth().currentUser?.uid else {
+ print("cannot find user")
+ return
+ }
+ let db = Firestore.firestore()
+ db.collection("users").document(userId).getDocument { [weak self] snapshot, error in
+ guard let data = snapshot?.data(), error == nil else {
+ print("user not registered")
+ return
+ }
+ 
+ print(data)
+ let decoder = Firestore.Decoder()
+ do {
+ let user = try decoder.decode(User.self, from: data)
+ 
+ 
+ DispatchQueue.main.async {
+ self?.user = user
+ // User(id: data["id"] as? String ?? "",
+ // name: data["name"] as? String ?? "",
+ // emailAddress: data["email"] as? String ?? "",
+ // joined: data["joined"] as? Timestamp ?? "")
+ }
+ } catch {
+ print("Error decoding USER.")
+ }
+ }
+ }
+ */

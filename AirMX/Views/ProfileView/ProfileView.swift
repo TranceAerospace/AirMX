@@ -41,7 +41,7 @@ struct ProfileView: View {
             }
         }
         .onAppear {
-            viewModel.fetchUser()
+            viewModel.getUser()
         }
     }
     

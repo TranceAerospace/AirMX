@@ -57,7 +57,7 @@ class LoginViewVM {
     @MainActor
     func signInWithGoogle() async throws {
         let tokens = try await SignInWithGoogleHelper().signIn()
-        let user = try await AuthManager.shared.signInWithGoogle(tokens: tokens)
+        try await AuthManager.shared.signInWithGoogle(tokens: tokens)
         
         
     }
