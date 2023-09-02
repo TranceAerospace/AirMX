@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @Bindable var viewModel = RegisterViewVM()
+    @State var viewModel = RegisterViewVM()
     
     var body: some View {
         VStack {
@@ -28,7 +28,9 @@ struct RegisterView: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                     
                     AirMXButton(title: "Create Account", background: Color(.airMXDarkGreen)) {
-                        viewModel.register()
+                        Task {
+                            await viewModel.register()
+                        }
                     }
                     .shadow(radius: 2, x: 4, y: 4)
                 }

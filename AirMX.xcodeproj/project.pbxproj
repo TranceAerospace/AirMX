@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9F195E392A15966F00743CE6 /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */; };
+		9F380CE42AA001DB004CBFDB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F380CE32AA001DB004CBFDB /* AuthManager.swift */; };
+		9F380CE72AA027E9004CBFDB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F380CE62AA027E9004CBFDB /* Utilities.swift */; };
 		9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4112A0FC45E00511140 /* LoginView.swift */; };
 		9F5DB4142A0FC48700511140 /* LoginViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4132A0FC48700511140 /* LoginViewVM.swift */; };
 		9F5DB4162A0FC4C700511140 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4152A0FC4C700511140 /* HeaderView.swift */; };
@@ -35,6 +37,8 @@
 		9FC224252A9BFAE600FA8EEA /* WorkOrderDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC224242A9BFAE600FA8EEA /* WorkOrderDetailVM.swift */; };
 		9FC224282A9D6D9600FA8EEA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC224272A9D6D9600FA8EEA /* GoogleSignIn */; };
 		9FC2242A2A9D6D9600FA8EEA /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC224292A9D6D9600FA8EEA /* GoogleSignInSwift */; };
+		9FD62B9C2AA0314500849157 /* GoogleSignInResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD62B9B2AA0314500849157 /* GoogleSignInResultModel.swift */; };
+		9FD62B9E2AA03A7A00849157 /* SignInWithGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD62B9D2AA03A7A00849157 /* SignInWithGoogleHelper.swift */; };
 		9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7829A9779200462595 /* AirMXApp.swift */; };
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
@@ -44,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
+		9F380CE32AA001DB004CBFDB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		9F380CE62AA027E9004CBFDB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9F5DB4112A0FC45E00511140 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9F5DB4132A0FC48700511140 /* LoginViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewVM.swift; sourceTree = "<group>"; };
 		9F5DB4152A0FC4C700511140 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		9F97E56129AA9CCA00A1808D /* AddPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartsView.swift; sourceTree = "<group>"; };
 		9FC224242A9BFAE600FA8EEA /* WorkOrderDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderDetailVM.swift; sourceTree = "<group>"; };
 		9FC9B95B29CC69BE004794C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9FD62B9B2AA0314500849157 /* GoogleSignInResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInResultModel.swift; sourceTree = "<group>"; };
+		9FD62B9D2AA03A7A00849157 /* SignInWithGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleHelper.swift; sourceTree = "<group>"; };
 		9FE84F7529A9779200462595 /* AirMX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirMX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE84F7829A9779200462595 /* AirMXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirMXApp.swift; sourceTree = "<group>"; };
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
@@ -91,6 +99,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F380CE52AA027BC004CBFDB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9F380CE32AA001DB004CBFDB /* AuthManager.swift */,
+				9F380CE62AA027E9004CBFDB /* Utilities.swift */,
+				9FD62B9B2AA0314500849157 /* GoogleSignInResultModel.swift */,
+				9FD62B9D2AA03A7A00849157 /* SignInWithGoogleHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		9F5DB4102A0FC44E00511140 /* Login View */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +213,7 @@
 				9F5DB4212A10297F00511140 /* Custom Button */,
 				9F5DB4202A10296C00511140 /* PartsView */,
 				9F5DB4152A0FC4C700511140 /* HeaderView.swift */,
+				9F380CE52AA027BC004CBFDB /* Utilities */,
 				9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */,
 			);
 			path = Views;
@@ -329,7 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD62B9E2AA03A7A00849157 /* SignInWithGoogleHelper.swift in Sources */,
 				9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */,
+				9F380CE42AA001DB004CBFDB /* AuthManager.swift in Sources */,
 				9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */,
 				9F5DB42E2A110E3300511140 /* WorkOrderListViewVM.swift in Sources */,
 				9F5DB41D2A1028AD00511140 /* AirMXButton.swift in Sources */,
@@ -341,11 +363,13 @@
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
 				9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */,
 				9F5DB4182A10281D00511140 /* RegisterView.swift in Sources */,
+				9F380CE72AA027E9004CBFDB /* Utilities.swift in Sources */,
 				9F71C1472A145B5C005EC729 /* ProfileViewVM.swift in Sources */,
 				9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */,
 				9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */,
 				9FE84F7929A9779200462595 /* AirMXApp.swift in Sources */,
 				9F97E56029AA7B8D00A1808D /* EmptyListView.swift in Sources */,
+				9FD62B9C2AA0314500849157 /* GoogleSignInResultModel.swift in Sources */,
 				9F5DB4282A110D1300511140 /* MainViewVM.swift in Sources */,
 				9F5DB42A2A110DD500511140 /* WorkOrderListView.swift in Sources */,
 				9F195E392A15966F00743CE6 /* WorkOrderRowView.swift in Sources */,

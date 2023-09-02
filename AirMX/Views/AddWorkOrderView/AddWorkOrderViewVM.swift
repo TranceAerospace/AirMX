@@ -33,6 +33,7 @@ class AddWorkOrderViewVM {
         guard let uId = Auth.auth().currentUser?.uid else {
             return
         }
+        
         //Create a model
         let newId = UUID().uuidString
         let newItem = AircraftWorkOrder(id: newId, hobbs: aircraftHobbs, cycles: aircraftCycles, tailNumber: tailNumber, datePerformed: Timestamp(date: Date()), workNotes: workNotes, parts: parts)

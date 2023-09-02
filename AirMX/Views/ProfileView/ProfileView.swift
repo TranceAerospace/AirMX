@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @StateObject var viewModel = ProfileViewVM()
+    @State var viewModel = ProfileViewVM()
     
     var body: some View {
         NavigationView {
@@ -71,17 +71,11 @@ struct ProfileView: View {
             HStack {
                 Text("Member Since: ")
                     .bold()
-                Text(Helper.convert(toString: user.joined.dateValue()))
+                //Text(Helper.convert(toString: user.joined.dateValue()))
             }
             .padding()
         }
         .padding()
-        // Sign Out
-        //        Button("Log Out") {
-        //            viewModel.logOut()
-        //        }
-        //        .tint(.red)
-        //        .padding()
         
         Spacer()
     }

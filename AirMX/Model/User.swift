@@ -12,5 +12,14 @@ struct User: Codable {
     let id: String
     let name: String
     let emailAddress: String
-    let joined: Timestamp
+    //let joined: Timestamp
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "uid"
+        case name = "display_name"
+        case emailAddress = "email"
+        //case joined
+    }
+    
+    
 }

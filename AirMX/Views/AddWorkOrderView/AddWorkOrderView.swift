@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddWorkOrderView: View {
-    @Bindable var viewModel = AddWorkOrderViewVM()
+    @State var viewModel = AddWorkOrderViewVM()
     
     @Environment(\.dismiss) var dismiss
     

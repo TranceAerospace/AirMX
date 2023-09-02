@@ -34,7 +34,13 @@ struct LogInView: View {
                             .textFieldStyle(DefaultTextFieldStyle())
                         
                         AirMXButton(title: "Log In", background: Color(.airMXDarkGreen)) {
-                            viewModel.login()
+                            Task {
+                                do {
+                                    try await viewModel.login()
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
                         }
                         .shadow(radius: 2, x: 4, y: 4)
                     
@@ -46,12 +52,12 @@ struct LogInView: View {
                 .offset(y: -50)
                 
                 //MARK: Temp Google Sign In Button
-                GoogleSignInButton {
+                GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
                     Task {
                         do {
                             try await viewModel.signInWithGoogle()
                         } catch {
-                            
+                            print(error)
                         }
                     }
                 }
@@ -59,7 +65,7 @@ struct LogInView: View {
             
                 
                 
-                // Create Account
+                // MARK: - Create Account
                 VStack {
                     Text("New Around here?")
                     Divider()

@@ -18,23 +18,22 @@ class RegisterViewVM {
     
     init() {}
     
-    func register() {
+    func register() async {
         guard validate() else {
             return
         }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard let userID = result?.user.uid else {
-                return
-            }
-            
-            self?.insertUserRecord(id: userID)
+        do {
+            let newUser = try await AuthManager.shared.createUser(email: email, password: password, name: name)
+            let userID = newUser.id
+            self.insertUserRecord(id: userID)
+        } catch {
+            print("Error registering user: \(error.localizedDescription)")
         }
-        
     }
     
     private func insertUserRecord(id: String) {
-        let newUser = User(id: id, name: name, emailAddress: email, joined: Timestamp(date: Date()))
+        let newUser = User(id: id, name: name, emailAddress: email)
+        //, joined: Timestamp(date: Date()))
         
         do {
             let db = Firestore.firestore()

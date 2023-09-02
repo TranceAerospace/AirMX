@@ -9,19 +9,21 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
-class ProfileViewVM: ObservableObject {
-    @Published var user: User? = nil
+@Observable
+class ProfileViewVM {
+    var user: User? = nil
     
     init() {}
     
     func fetchUser() {
         guard let userId = Auth.auth().currentUser?.uid else {
-            print("cannont find user")
+            print("cannot find user")
             return
         }
         let db = Firestore.firestore()
         db.collection("users").document(userId).getDocument { [weak self] snapshot, error in
             guard let data = snapshot?.data(), error == nil else {
+                print("user not registered")
                 return
             }
             
@@ -33,10 +35,10 @@ class ProfileViewVM: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self?.user = user
-                    //                                User(id: data["id"] as? String ?? "",
-                    //                                  name: data["name"] as? String ?? "",
-                    //                                  emailAddress: data["email"] as? String ?? "",
-                    //                                  joined: data["joined"] as? Timestamp ?? "")
+                    // User(id: data["id"] as? String ?? "",
+                    // name: data["name"] as? String ?? "",
+                    // emailAddress: data["email"] as? String ?? "",
+                    // joined: data["joined"] as? Timestamp ?? "")
                 }
             } catch {
                 print("Error decoding USER.")
@@ -46,7 +48,7 @@ class ProfileViewVM: ObservableObject {
     
     func logOut() {
         do {
-            try Auth.auth().signOut()
+            try AuthManager.shared.signOut()
         } catch {
             print(error)
         }
