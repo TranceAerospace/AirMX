@@ -33,6 +33,11 @@ struct MainView: View {
                     Label("Home", systemImage: "house.circle")
                 }
             
+            SquawkView()
+                .tabItem {
+                    Label("Squawks", systemImage: "exclamationmark.triangle")
+                }
+ 
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
