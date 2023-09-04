@@ -82,6 +82,7 @@ struct WorkOrderListView: View {
                         NavigationLink(destination: WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: order))) {
                             WorkOrderRowView(workOrder: order)
                         }
+                        .listRowSeparatorTint(Color(.airMXDarkGreen))
                         .swipeActions {
                             Button("Delete") {
                                 viewModel.delete(id: order.id)
@@ -129,6 +130,6 @@ struct WorkOrderListView: View {
 }
 
 #Preview {
-    WorkOrderListView(viewModel: WorkOrderListViewVM(userId: "7T6crErX8rfapVLyKfc1l3a20UL2"), orders: FirestoreQuery(collectionPath: "users/7T6crErX8rfapVLyKfc1l3a20UL2/workOrders", predicates: [.order(by:"datePerformed", descending: true)]))
+    WorkOrderListView(viewModel: WorkOrderListViewVM(userId: "LEaWBY82ciPnFDkxaAo5fKFfCpA2"), orders: FirestoreQuery(collectionPath: "users/LEaWBY82ciPnFDkxaAo5fKFfCpA2/workOrders", predicates: [.order(by:"datePerformed", descending: true)]))
 
 }
