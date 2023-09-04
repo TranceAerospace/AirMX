@@ -119,6 +119,7 @@
 		9F5DB4102A0FC44E00511140 /* Login View */ = {
 			isa = PBXGroup;
 			children = (
+				9F5DB4152A0FC4C700511140 /* HeaderView.swift */,
 				9F5DB4112A0FC45E00511140 /* LoginView.swift */,
 				9F5DB4132A0FC48700511140 /* LoginViewVM.swift */,
 			);
@@ -192,6 +193,7 @@
 		9F71C1492A146068005EC729 /* WorkOrderListView */ = {
 			isa = PBXGroup;
 			children = (
+				9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */,
 				9F5DB4292A110DD500511140 /* WorkOrderListView.swift */,
 				9F5DB42D2A110E3300511140 /* WorkOrderListViewVM.swift */,
 			);
@@ -229,9 +231,7 @@
 				9F71C1482A145C60005EC729 /* ProfileView */,
 				9F5DB4212A10297F00511140 /* Custom Button */,
 				9F5DB4202A10296C00511140 /* PartsView */,
-				9F5DB4152A0FC4C700511140 /* HeaderView.swift */,
 				9F380CE52AA027BC004CBFDB /* Utilities */,
-				9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
