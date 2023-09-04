@@ -10,15 +10,15 @@ import FirebaseFirestore
 
 struct User: Codable {
     let id: String
-    let name: String
-    let emailAddress: String
-    //let joined: Timestamp
+    var name: String
+    var emailAddress: String
+    var organization: String = ""
     
     enum CodingKeys: String, CodingKey {
         case id = "uid"
-        case name = "display_name"
+        case name = "displayName"
         case emailAddress = "email"
-        //case joined
+        case organization
     }
     
     

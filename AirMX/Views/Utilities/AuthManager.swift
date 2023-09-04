@@ -20,12 +20,10 @@ final class AuthManager {
             throw URLError(.badServerResponse)
         }
         return User(id: user.uid,
-                    name: user.displayName ?? "No display name found.",
+                    name: user.displayName ?? "No name1 found.",
                     emailAddress: user.email ?? "No email found.")
-                    //,joined: Timestamp(date: Date()))
+        //,joined: Timestamp(date: Date()))
     }
-    
-    
     
     func signOut() throws {
         try Auth.auth().signOut()
@@ -44,7 +42,7 @@ extension AuthManager {
         return User(id: authResult.user.uid,
                     name: name,
                     emailAddress: authResult.user.email ?? "No email found.")
-                    //,joined: Timestamp(date: Date()))
+        //,joined: Timestamp(date: Date()))
     }
     
     @discardableResult
@@ -52,9 +50,9 @@ extension AuthManager {
         let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
         
         return User(id: authResult.user.uid,
-                    name: authResult.user.displayName ?? "No display name found.",
+                    name: authResult.user.displayName ?? "No name3 found.",
                     emailAddress: authResult.user.email ?? "No email found.")
-                    //,joined: Timestamp(date: Date()))
+        //,joined: Timestamp(date: Date()))
     }
     
     func resetPassword(email: String) async throws {
@@ -97,7 +95,7 @@ extension AuthManager {
         
         if try await usersRef.whereField("users", arrayContains: authResult.user.uid).getDocuments().isEmpty {
             let newUser = User(id: authResult.user.uid,
-                               name: authResult.user.displayName ?? "No display name found.",
+                               name: authResult.user.displayName ?? "No name4 found.",
                                emailAddress: authResult.user.email ?? "No email found.")
             //,joined: Timestamp(date: Date()))
             
@@ -112,9 +110,9 @@ extension AuthManager {
         }
         
         return User(id: authResult.user.uid,
-                    name: authResult.user.displayName ?? "No display name found.",
+                    name: authResult.user.displayName ?? "No name5 found.",
                     emailAddress: authResult.user.email ?? "No email found.") }
-                    //,joined: )    }
+    //,joined: )    }
     
 }
 

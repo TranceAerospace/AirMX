@@ -25,15 +25,14 @@ class RegisterViewVM {
         do {
             let newUser = try await AuthManager.shared.createUser(email: email, password: password, name: name)
             let userID = newUser.id
-            self.insertUserRecord(id: userID)
+            self.insertUserRecord(id: userID, name: newUser.name, email: newUser.emailAddress)
         } catch {
             print("Error registering user: \(error.localizedDescription)")
         }
     }
     
-    private func insertUserRecord(id: String) {
+    private func insertUserRecord(id: String, name: String, email: String) {
         let newUser = User(id: id, name: name, emailAddress: email)
-        //, joined: Timestamp(date: Date()))
         
         do {
             let db = Firestore.firestore()
