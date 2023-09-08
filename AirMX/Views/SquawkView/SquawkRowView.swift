@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SquawkRowView: View {
-     @Binding var squawkModel: SquawkModel
+    @Binding var squawkModel: SquawkModel
     
     var body: some View {
         HStack(spacing: 30) {
