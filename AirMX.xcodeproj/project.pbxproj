@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F195E392A15966F00743CE6 /* WorkOrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */; };
+		9F1FCA5E2AAA9AC000E5D4B6 /* AddSquawkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1FCA5D2AAA9AC000E5D4B6 /* AddSquawkView.swift */; };
 		9F380CE42AA001DB004CBFDB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F380CE32AA001DB004CBFDB /* AuthManager.swift */; };
 		9F380CE72AA027E9004CBFDB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F380CE62AA027E9004CBFDB /* Utilities.swift */; };
 		9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB4112A0FC45E00511140 /* LoginView.swift */; };
@@ -46,11 +47,11 @@
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
 		9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7F29A9779300462595 /* Preview Assets.xcassets */; };
-		9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F8629A979CC00462595 /* CheckboxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9F195E382A15966F00743CE6 /* WorkOrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderRowView.swift; sourceTree = "<group>"; };
+		9F1FCA5D2AAA9AC000E5D4B6 /* AddSquawkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSquawkView.swift; sourceTree = "<group>"; };
 		9F380CE32AA001DB004CBFDB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		9F380CE62AA027E9004CBFDB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9F5DB4112A0FC45E00511140 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
 		9FE84F7C29A9779300462595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE84F7F29A9779300462595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9FE84F8629A979CC00462595 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +177,7 @@
 			children = (
 				9F68A98B2AA55F98002FEA81 /* SquawkView.swift */,
 				9F68A98D2AA5641F002FEA81 /* SquawkRowView.swift */,
+				9F1FCA5D2AAA9AC000E5D4B6 /* AddSquawkView.swift */,
 			);
 			path = SquawkView;
 			sourceTree = "<group>";
@@ -269,7 +270,6 @@
 				9F77870529AA52B900F061AF /* Extensions */,
 				9F77870229AA3C8400F061AF /* Views */,
 				9FE84F7829A9779200462595 /* AirMXApp.swift */,
-				9FE84F8629A979CC00462595 /* CheckboxView.swift */,
 				9FE84F7C29A9779300462595 /* Assets.xcassets */,
 				9FE84F7E29A9779300462595 /* Preview Content */,
 			);
@@ -367,7 +367,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FD62B9E2AA03A7A00849157 /* SignInWithGoogleHelper.swift in Sources */,
-				9FE84F8729A979CC00462595 /* CheckboxView.swift in Sources */,
 				9F380CE42AA001DB004CBFDB /* AuthManager.swift in Sources */,
 				9F97E56229AA9CCA00A1808D /* AddPartsView.swift in Sources */,
 				9F5DB42E2A110E3300511140 /* WorkOrderListViewVM.swift in Sources */,
@@ -381,6 +380,7 @@
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
 				9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */,
 				9F5DB4182A10281D00511140 /* RegisterView.swift in Sources */,
+				9F1FCA5E2AAA9AC000E5D4B6 /* AddSquawkView.swift in Sources */,
 				9F380CE72AA027E9004CBFDB /* Utilities.swift in Sources */,
 				9F71C1472A145B5C005EC729 /* ProfileViewVM.swift in Sources */,
 				9F5DB4122A0FC45E00511140 /* LoginView.swift in Sources */,

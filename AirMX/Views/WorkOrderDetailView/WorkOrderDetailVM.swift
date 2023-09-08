@@ -11,10 +11,13 @@ import Observation
 @Observable
 class WorkOrderDetailVM {
     var workOrder: AircraftWorkOrder
+    var parts: [Part] = []
+    
     var showingDeleteAlert = false
     
     init(workOrder: AircraftWorkOrder) {
         self.workOrder = workOrder
+        self.parts = workOrder.parts ?? []
     }
     
 }
