@@ -14,63 +14,61 @@ struct AddWorkOrderView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(.airMXBackground)
-                    .ignoresSafeArea()
-                
-                Form {
-                    Section {
-                        TextField("Tail Number", text: $viewModel.tailNumber)
-                        TextField("Aircraft Hobbs", text: $viewModel.aircraftHobbs)
-                            .keyboardType(.decimalPad)
-                        TextField("Aircraft Cycles", text: $viewModel.aircraftCycles)
-                            .keyboardType(.decimalPad)
-                    } header: {
-                        Text("Aircraft Info")
-                            .underline()
-                    }
-                    
-                    Section {
-                        TextEditor(text: $viewModel.workNotes)
-                    } header: {
-                        Text("Enter Work Performed Below")
-                            .underline()
-                    }
-                    
-                    
-                    Section {
-                        if viewModel.parts.isEmpty {
-                            Text("Add a part to see them listed here.")
-                                .foregroundStyle(Color.gray)
-                        } else {
-                            List(viewModel.parts) { part in
-                                Text(part.partNumberOn)
-                            }
-                        }
-                        
-                        Button {
-                            viewModel.showPartsSheet.toggle()
-                        } label: {
-                            Label("Add Part", systemImage: "plus.circle.fill")
-                                .foregroundStyle(.airMXGreen)
-                        }
-                        .sheet(isPresented: $viewModel.showPartsSheet) {
-                            AddPartsView(parts: $viewModel.parts)
-                                .presentationDetents([.height(400)])
-                                .presentationDragIndicator(.hidden)
-                                .interactiveDismissDisabled()
-                        }
-                        
-                    } header: {
-                        Text("Parts")
-                            .underline()
-                    }
+            
+            Form {
+                Section {
+                    TextField("Tail Number", text: $viewModel.tailNumber)
+                    TextField("Aircraft Hobbs", text: $viewModel.aircraftHobbs)
+                        .keyboardType(.decimalPad)
+                    TextField("Aircraft Cycles", text: $viewModel.aircraftCycles)
+                        .keyboardType(.decimalPad)
+                } header: {
+                    Text("Aircraft Info")
+                        .underline()
                 }
-                .scrollContentBackground(.hidden)
-                .padding(.bottom)
-                .autocorrectionDisabled(true)
-                .navigationTitle("New Work Order")
+                
+                Section {
+                    TextEditor(text: $viewModel.workNotes)
+                } header: {
+                    Text("Enter Work Performed Below")
+                        .underline()
+                }
+                
+                
+                Section {
+                    if viewModel.parts.isEmpty {
+                        Text("Add a part to see them listed here.")
+                            .foregroundStyle(Color.gray)
+                    } else {
+                        List(viewModel.parts) { part in
+                            Text(part.partNumberOn)
+                        }
+                    }
+                    
+                    Button {
+                        viewModel.showPartsSheet.toggle()
+                    } label: {
+                        Label("Add Part", systemImage: "plus.circle.fill")
+                            .foregroundStyle(.airMXGreen)
+                    }
+                    .sheet(isPresented: $viewModel.showPartsSheet) {
+                        AddPartsView(parts: $viewModel.parts)
+                            .presentationDetents([.height(400)])
+                            .presentationDragIndicator(.hidden)
+                            .interactiveDismissDisabled()
+                    }
+                    
+                } header: {
+                    Text("Parts")
+                        .underline()
+                }
             }
+            .scrollContentBackground(.hidden)
+            .padding(.bottom)
+            .autocorrectionDisabled(true)
+            .navigationTitle("New Work Order")
+            
+            .background(Color(.airMXBackground).ignoresSafeArea())
             
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {

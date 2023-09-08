@@ -19,14 +19,10 @@ struct WorkOrderListView: View {
             Helper.convert(toString: order.datePerformed.dateValue())
         }
     }
-
+    
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(.airMXBackground)
-                    .ignoresSafeArea(edges: [.top, .horizontal])
-                
                 VStack {
                     if groupedOrders.isEmpty {
                         EmptyListView()
@@ -56,24 +52,23 @@ struct WorkOrderListView: View {
                     Button {
                         viewModel.showingNewItemView = true
                     } label: {
-                        Image(systemName: "plus")
-                            .symbolEffect(.pulse)
+                        Image(systemName: "doc.badge.plus")
+                            .font(.title2)
+                            .symbolEffect(.variableColor)
                             .foregroundStyle(Color(.airMXGreen))
                     }
-                    
                 }
-                .sheet(isPresented: $viewModel.showingNewItemView) {
+                .fullScreenCover(isPresented: $viewModel.showingNewItemView) {
                     AddWorkOrderView()
                 }
-            }
-            //.toolbarBackground(.hidden, for: .tabBar)
             
+                .background(Color(.airMXBackground).ignoresSafeArea())
             .tint(Color(.airMXBlack))
         }
         
     }
     
-    #warning("Fix/combine these.")
+#warning("Fix/combine these.")
     private func displayListByDate() -> some View {
         List {
             ForEach(groupedOrders.sorted(by: { $0.key > $1.key }), id: \.key) { key, value in
@@ -131,5 +126,5 @@ struct WorkOrderListView: View {
 
 #Preview {
     WorkOrderListView(viewModel: WorkOrderListViewVM(userId: "LEaWBY82ciPnFDkxaAo5fKFfCpA2"), orders: FirestoreQuery(collectionPath: "users/LEaWBY82ciPnFDkxaAo5fKFfCpA2/workOrders", predicates: [.order(by:"datePerformed", descending: true)]))
-
+    
 }
