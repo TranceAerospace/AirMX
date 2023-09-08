@@ -8,6 +8,19 @@
 import Foundation
 import FirebaseFirestore
 
+/// An aircraft work order is a record of work performed on an aircraft.
+///
+/// An aircraft work order has a unique identifier, a hobbs reading, a cycles reading, a tail number, a date performed, work notes, and an array of parts that could have been removed and installed.
+///
+/// - Parameters:
+///    - id: A unique identifier for the work order.
+///    - hobbs: The hobbs reading of the aircraft at the time of the work order.
+///    - cycles: The cycles reading of the aircraft at the time of the work order.
+///    - tailNumber: The tail number of the aircraft.
+///    - datePerformed: The date the work order was created.
+///    - workNotes: Any notes about the work performed.
+///    - parts: An array of parts that could have been removed and installed.
+
 struct AircraftWorkOrder: Identifiable, Codable, Hashable {
     var id: String
     var hobbs: String
