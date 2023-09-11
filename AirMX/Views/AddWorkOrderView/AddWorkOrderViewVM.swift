@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 @Observable
-class AddWorkOrderViewVM {
+final class AddWorkOrderViewVM {
     var aircraftHobbs = ""
     var aircraftCycles = ""
     var tailNumber = ""
@@ -22,6 +22,10 @@ class AddWorkOrderViewVM {
     var showPartsSheet = false
     
     init() {}
+    
+    init(tailNumber: String) {
+        self.tailNumber = tailNumber
+    }
     
     func save() {
         // MARK: - Not used

@@ -23,46 +23,47 @@ struct WorkOrderListView: View {
     
     var body: some View {
         NavigationStack {
-                VStack {
-                    if groupedOrders.isEmpty {
-                        EmptyListView()
-                    } else {
-                        
-                        Picker("", selection: $viewModel.sortMethod) {
-                            Text("Date").tag(0)
-                            Text("Tail Number").tag(1)
-                        }
-                        .pickerStyle(.segmented)
-                        .padding(.horizontal)
-                        
-                        if viewModel.sortMethod == 0 {
-                            displayListByDate()
-                                .shadow(radius: 2, x: 2, y: 2)
-                                .scrollContentBackground(.hidden)
-                        } else {
-                            displayListByTailNumber()
-                                .shadow(radius: 2, x: 2, y: 2)
-                                .scrollContentBackground(.hidden)
+            VStack {
+                if groupedOrders.isEmpty {
+                    EmptyListView()
+                } else {
+                    
+                    Picker("", selection: $viewModel.selectedSort) {
+                        ForEach(SortOptions.allCases, id: \.self) { option in
+                            Text(option.rawValue)
                         }
                     }
-                }
-                
-                .navigationTitle("Aircraft Work Orders")
-                .toolbar {
-                    Button {
-                        viewModel.showingNewItemView = true
-                    } label: {
-                        Image(systemName: "doc.badge.plus")
-                            .font(.title2)
-                            .symbolEffect(.variableColor)
-                            .foregroundStyle(Color(.airMXGreen))
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal)
+                    
+                    if viewModel.selectedSort.rawValue == "Date" {
+                        displayListByDate()
+                            .shadow(radius: 2, x: 2, y: 2)
+                            .scrollContentBackground(.hidden)
+                    } else if viewModel.selectedSort.rawValue == "Tail Number" {
+                        displayListByTailNumber()
+                            .shadow(radius: 2, x: 2, y: 2)
+                            .scrollContentBackground(.hidden)
                     }
                 }
-                .fullScreenCover(isPresented: $viewModel.showingNewItemView) {
-                    AddWorkOrderView()
-                }
+            }
             
-                .background(Color(.airMXBackground).ignoresSafeArea())
+            .navigationTitle("Aircraft Work Orders")
+            .toolbar {
+                Button {
+                    viewModel.showingNewItemView = true
+                } label: {
+                    Image(systemName: "doc.badge.plus")
+                        .font(.title2)
+                        .symbolEffect(.variableColor)
+                        .foregroundStyle(Color(.airMXGreen))
+                }
+            }
+            .fullScreenCover(isPresented: $viewModel.showingNewItemView) {
+                AddWorkOrderView()
+            }
+            
+            .background(Color(.airMXBackground).ignoresSafeArea())
             .tint(Color(.airMXBlack))
         }
         
@@ -93,9 +94,7 @@ struct WorkOrderListView: View {
     
     private func displayListByTailNumber() -> some View {
         // Group orders by tailNumber
-        let groupedByTailNumber = Dictionary(grouping: orders) { order in
-            order.tailNumber
-        }
+        let groupedByTailNumber = Dictionary(grouping: orders, by: {$0.tailNumber})
         
         // Sort the keys (tail numbers) alphabetically
         let sortedKeys = groupedByTailNumber.keys.sorted()

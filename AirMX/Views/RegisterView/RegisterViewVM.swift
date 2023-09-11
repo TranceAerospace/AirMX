@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 @Observable
-class RegisterViewVM {
+final class RegisterViewVM {
     
     var name = ""
     var email = ""

@@ -47,6 +47,7 @@
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
 		9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7F29A9779300462595 /* Preview Assets.xcassets */; };
+		9FFB6B322AACB7520046AAD3 /* SquawkViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB6B312AACB7520046AAD3 /* SquawkViewVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
 		9FE84F7C29A9779300462595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE84F7F29A9779300462595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9FFB6B312AACB7520046AAD3 /* SquawkViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquawkViewVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9F68A98B2AA55F98002FEA81 /* SquawkView.swift */,
+				9FFB6B312AACB7520046AAD3 /* SquawkViewVM.swift */,
 				9F68A98D2AA5641F002FEA81 /* SquawkRowView.swift */,
 				9F1FCA5D2AAA9AC000E5D4B6 /* AddSquawkView.swift */,
 			);
@@ -372,6 +375,7 @@
 				9F5DB42E2A110E3300511140 /* WorkOrderListViewVM.swift in Sources */,
 				9F5DB41D2A1028AD00511140 /* AirMXButton.swift in Sources */,
 				9F68A98E2AA5641F002FEA81 /* SquawkRowView.swift in Sources */,
+				9FFB6B322AACB7520046AAD3 /* SquawkViewVM.swift in Sources */,
 				9F5DB41B2A10286A00511140 /* RegisterViewVM.swift in Sources */,
 				9F71C14D2A146471005EC729 /* AddWorkOrderViewVM.swift in Sources */,
 				9F63734929AD8EA3009C37BD /* Part.swift in Sources */,

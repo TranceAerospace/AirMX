@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 @Observable
-class ProfileViewVM {
+final class ProfileViewVM {
     var user: User? = nil
     var name: String = ""
     var email: String = ""

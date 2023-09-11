@@ -12,17 +12,19 @@ import FirebaseFirestoreSwift
 /// ViewModel for list of items view
 /// Primary Tab
 @Observable
-class WorkOrderListViewVM {
+final class WorkOrderListViewVM {
     var showingNewItemView = false
     var sortMethod = 0
     
+    var selectedSort: SortOptions = .date
+
     private let userId: String
     
     
     init(userId: String) {
         self.userId = userId
     }
-
+    
     
     /// Delete list item
     /// - Parameter id: Item id to delete
@@ -37,12 +39,21 @@ class WorkOrderListViewVM {
     }
 }
 
+enum SortOptions: String, CaseIterable, Identifiable {
+    case date = "Date"
+    case tailNumber = "Tail Number"
+    
+    var id: String { self.rawValue }
+}
+
+
+
 
 // old init method putting here incase something breaks
 /*
-     init(userId: String) {
-         // users/<id>/workOrders/<entries>
-         self._orders = FirestoreQuery(collectionPath: "users/\(userId)/workOrders", predicates: [.order(by:"datePerformed", descending: true)])
-         //self._viewModel = StateObject(wrappedValue: WorkOrderListViewVM(userId: userId))
-     }
+ init(userId: String) {
+ // users/<id>/workOrders/<entries>
+ self._orders = FirestoreQuery(collectionPath: "users/\(userId)/workOrders", predicates: [.order(by:"datePerformed", descending: true)])
+ //self._viewModel = StateObject(wrappedValue: WorkOrderListViewVM(userId: userId))
+ }
  */

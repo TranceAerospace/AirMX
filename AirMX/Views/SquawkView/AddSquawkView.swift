@@ -14,66 +14,66 @@ struct AddSquawkView: View {
     
     var body: some View {
         NavigationStack {
-                VStack {
-                    Text("Add a squawk for your entire organization to view.")
-                        .font(.footnote)
-                        .foregroundStyle(Color.gray)
+            VStack {
+                Text("Add a squawk for your entire organization to view.")
+                    .font(.footnote)
+                    .foregroundStyle(Color.gray)
+                
+                Form {
                     
-                    Form {
+                    Section {
+                        TextField("Tail Number", text: $tailNumber)
+                            .autocorrectionDisabled()
                         
-                        Section {
-                            TextField("Tail Number", text: $tailNumber)
-                                .autocorrectionDisabled()
-                            
-                        } header: {
-                            Text("Squawk Info")
-                                .underline()
-                        }
-                        
-                        Section {
-                            TextEditor(text: $squawkText)
-                        } header: {
-                            Text("Enter Squawk Details Below")
-                                .underline()
+                    } header: {
+                        Text("Squawk Info")
+                            .underline()
+                    }
+                    
+                    Section {
+                        TextEditor(text: $squawkText)
+                    } header: {
+                        Text("Enter Squawk Details Below")
+                            .underline()
+                    }
+                }
+                .scrollContentBackground(.hidden)
+                .navigationTitle("Add Squawk")
+                
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button() {
+                            dismiss()
+                        } label: {
+                            Text("Cancel")
+                                .padding()
+                                .frame(width: 150, height: 44)
+                                .background(.airMXRed)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .shadow(radius: 2, x: 4, y: 4)
                         }
                     }
-                    .scrollContentBackground(.hidden)
-                    .navigationTitle("Add Squawk")
                     
-                    .toolbar {
-                        ToolbarItem(placement: .bottomBar) {
-                            Button() {
-                                dismiss()
-                            } label: {
-                                Text("Cancel")
-                                    .padding()
-                                    .frame(width: 150, height: 44)
-                                    .background(.airMXRed)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                                    .shadow(radius: 2, x: 4, y: 4)
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .bottomBar) {
-                            Button {
-                                
-                                dismiss()
-                                
-                            } label: {
-                                Text("Save")
-                                    .padding()
-                                    .frame(width: 150, height: 44)
-                                    .background(.airMXGreen)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(8)
-                                    .shadow(radius: 2, x: 4, y: 4)
-                            }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button {
+                            
+                            dismiss()
+                            
+                        } label: {
+                            Text("Save")
+                                .padding()
+                                .frame(width: 150, height: 44)
+                                .background(.airMXGreen)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .shadow(radius: 2, x: 4, y: 4)
                         }
                     }
                 }
             }
-        .background(Color(.airMXBackground).ignoresSafeArea())
+            .background(Color(.airMXBackground).ignoresSafeArea())
+        }
     }
 }
 

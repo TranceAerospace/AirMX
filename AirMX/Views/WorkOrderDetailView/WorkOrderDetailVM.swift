@@ -9,7 +9,7 @@ import Foundation
 import Observation
 
 @Observable
-class WorkOrderDetailVM {
+final class WorkOrderDetailVM {
     var workOrder: AircraftWorkOrder
     var parts: [Part] = []
     

@@ -12,7 +12,7 @@ import GoogleSignIn
 import GoogleSignInSwift
 
 @Observable
-class LoginViewVM {
+final class LoginViewVM {
     
     var email = ""
     var password = ""
