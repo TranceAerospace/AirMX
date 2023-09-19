@@ -47,6 +47,7 @@
 		9FE84F7B29A9779200462595 /* AddWorkOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */; };
 		9FE84F7D29A9779300462595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7C29A9779300462595 /* Assets.xcassets */; };
 		9FE84F8029A9779300462595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE84F7F29A9779300462595 /* Preview Assets.xcassets */; };
+		9FEA5B692AAE948E0024F8B7 /* SquawkModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5B682AAE948E0024F8B7 /* SquawkModelStore.swift */; };
 		9FFB6B322AACB7520046AAD3 /* SquawkViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB6B312AACB7520046AAD3 /* SquawkViewVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		9FE84F7A29A9779200462595 /* AddWorkOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkOrderView.swift; sourceTree = "<group>"; };
 		9FE84F7C29A9779300462595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FE84F7F29A9779300462595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9FEA5B682AAE948E0024F8B7 /* SquawkModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquawkModelStore.swift; sourceTree = "<group>"; };
 		9FFB6B312AACB7520046AAD3 /* SquawkViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquawkViewVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,7 @@
 				9F8E5D872A03333E004C65A1 /* AircraftWorkOrder.swift */,
 				9F5DB41E2A10293200511140 /* User.swift */,
 				9F68A98F2AA5FC67002FEA81 /* SquawkModel.swift */,
+				9FEA5B682AAE948E0024F8B7 /* SquawkModelStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				9F77870429AA45F200F061AF /* WorkOrderDetailView.swift in Sources */,
 				9F8E5D882A03333E004C65A1 /* AircraftWorkOrder.swift in Sources */,
 				9F5DB4182A10281D00511140 /* RegisterView.swift in Sources */,
+				9FEA5B692AAE948E0024F8B7 /* SquawkModelStore.swift in Sources */,
 				9F1FCA5E2AAA9AC000E5D4B6 /* AddSquawkView.swift in Sources */,
 				9F380CE72AA027E9004CBFDB /* Utilities.swift in Sources */,
 				9F71C1472A145B5C005EC729 /* ProfileViewVM.swift in Sources */,

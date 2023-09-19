@@ -23,48 +23,52 @@ struct WorkOrderListView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                if groupedOrders.isEmpty {
-                    EmptyListView()
-                } else {
-                    
-                    Picker("", selection: $viewModel.selectedSort) {
-                        ForEach(SortOptions.allCases, id: \.self) { option in
-                            Text(option.rawValue)
+            ZStack {
+                Color.airMXBackground
+                    .ignoresSafeArea()
+                VStack {
+                    if groupedOrders.isEmpty {
+                        EmptyListView()
+                    } else {
+                        
+                        Picker("", selection: $viewModel.selectedSort) {
+                            ForEach(SortOptions.allCases, id: \.self) { option in
+                                Text(option.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal)
+                        
+                        if viewModel.selectedSort.rawValue == "Date" {
+                            displayListByDate()
+                                .shadow(radius: 2, x: 2, y: 2)
+                                .scrollContentBackground(.hidden)
+                        } else if viewModel.selectedSort.rawValue == "Tail Number" {
+                            displayListByTailNumber()
+                                .shadow(radius: 2, x: 2, y: 2)
+                                .scrollContentBackground(.hidden)
                         }
                     }
-                    .pickerStyle(.segmented)
-                    .padding(.horizontal)
-                    
-                    if viewModel.selectedSort.rawValue == "Date" {
-                        displayListByDate()
-                            .shadow(radius: 2, x: 2, y: 2)
-                            .scrollContentBackground(.hidden)
-                    } else if viewModel.selectedSort.rawValue == "Tail Number" {
-                        displayListByTailNumber()
-                            .shadow(radius: 2, x: 2, y: 2)
-                            .scrollContentBackground(.hidden)
+                }
+                
+                .navigationTitle("Aircraft Work Orders")
+                .toolbar {
+                    Button {
+                        viewModel.showingNewItemView = true
+                    } label: {
+                        Image(systemName: "doc.badge.plus")
+                            .font(.title2)
+                            .symbolEffect(.variableColor)
+                            .foregroundStyle(Color(.airMXGreen))
                     }
                 }
-            }
-            
-            .navigationTitle("Aircraft Work Orders")
-            .toolbar {
-                Button {
-                    viewModel.showingNewItemView = true
-                } label: {
-                    Image(systemName: "doc.badge.plus")
-                        .font(.title2)
-                        .symbolEffect(.variableColor)
-                        .foregroundStyle(Color(.airMXGreen))
+                .fullScreenCover(isPresented: $viewModel.showingNewItemView) {
+                    AddWorkOrderView()
                 }
-            }
-            .fullScreenCover(isPresented: $viewModel.showingNewItemView) {
-                AddWorkOrderView()
-            }
-            
-            .background(Color(.airMXBackground).ignoresSafeArea())
+                
+                //.background(Color(.airMXBackground).ignoresSafeArea())
             .tint(Color(.airMXBlack))
+            }
         }
         
     }

@@ -11,6 +11,7 @@ struct AddSquawkView: View {
     @Environment(\.dismiss) var dismiss
     @State var tailNumber: String = ""
     @State var squawkText: String = ""
+    @State var organization: String = ""
     
     var body: some View {
         NavigationStack {
@@ -23,6 +24,8 @@ struct AddSquawkView: View {
                     
                     Section {
                         TextField("Tail Number", text: $tailNumber)
+                            .autocorrectionDisabled()
+                        TextField("Organization", text: $organization)
                             .autocorrectionDisabled()
                         
                     } header: {
@@ -57,7 +60,17 @@ struct AddSquawkView: View {
                     
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            
+                            Task {
+                                do {
+                                    let newId = UUID().uuidString
+                                    let newSquawk = SquawkModel(id: newId, tailNumber: tailNumber, squawkText: squawkText, dateText: "9/9/2001", organization: organization)
+                                    
+                                    try await SquawkModelStore.shared.addSquawk(newSquawk)
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
+    
                             dismiss()
                             
                         } label: {
@@ -75,6 +88,7 @@ struct AddSquawkView: View {
             .background(Color(.airMXBackground).ignoresSafeArea())
         }
     }
+    
 }
 
 #Preview {

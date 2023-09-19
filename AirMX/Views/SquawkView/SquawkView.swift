@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct SquawkView: View {
-    @State var viewModel = SquawkViewVM()
+    @Bindable var viewModel = SquawkViewVM()
     
     var body: some View {
         NavigationStack {
@@ -49,7 +50,15 @@ struct SquawkView: View {
                     .fullScreenCover(isPresented: $viewModel.goToAddWorkOrder) {
                         AddWorkOrderView(viewModel: AddWorkOrderViewVM(tailNumber: viewModel.selectedSquawkTailNumber ?? ""))
                     }
+                    .task {
+                        do {
+                            try viewModel.fetchSquawks(for: "@aci")
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
             }
+            
             
             .shadow(radius: 2, x: 2, y: 2)
             .scrollContentBackground(.hidden)
@@ -81,4 +90,6 @@ struct SquawkView: View {
 
 #Preview {
     SquawkView()
+    //viewModel: SquawkViewVM(), squawks: FirestoreQuery(collectionPath: "squawks/@aci/squawks")
+    
 }

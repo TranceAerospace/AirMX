@@ -33,7 +33,8 @@ struct MainView: View {
                     Label("Home", systemImage: "house.circle")
                 }
             
-            SquawkView()
+            SquawkView() 
+            //viewModel: SquawkViewVM(), squawks: FirestoreQuery(collectionPath: "squawks/aci/squawks")
                 .tabItem {
                     Label("Squawks", systemImage: "exclamationmark.triangle")
                 }

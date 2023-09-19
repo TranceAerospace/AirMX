@@ -40,6 +40,6 @@ struct SquawkRowView: View {
 
 #Preview {
     Form {
-        SquawkRowView(squawkModel: .constant(SquawkModel(tailNumber: "N893WB", squawkText: "Stuff's Broken", dateText: "9/1/2010")))
+        SquawkRowView(squawkModel: .constant(SquawkModel(id: "", tailNumber: "N893WB", squawkText: "Stuff's Broken", dateText: "9/1/2010", organization: "@aci")))
     }
 }
