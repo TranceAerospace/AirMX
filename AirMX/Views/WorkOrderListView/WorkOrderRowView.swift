@@ -22,7 +22,7 @@ struct WorkOrderRowView: View {
                 .shadow(radius: 2, x: 2, y: 2)
             
             VStack {
-                Text(Helper.convert(toString: workOrder.datePerformed.dateValue()))
+                Text(workOrder.datePerformed.dateValue().formatted(date: .numeric, time: .omitted))
                     .bold()
                 Text(workOrder.workNotes)
                     .font(.footnote)

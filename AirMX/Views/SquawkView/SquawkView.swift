@@ -62,7 +62,6 @@ struct SquawkView: View {
             
             .shadow(radius: 2, x: 2, y: 2)
             .scrollContentBackground(.hidden)
-            
             .background(Color(.airMXBackground).ignoresSafeArea())
             .navigationTitle("Squawk List")
             .toolbar {

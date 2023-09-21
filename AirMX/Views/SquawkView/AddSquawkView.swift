@@ -63,7 +63,8 @@ struct AddSquawkView: View {
                             Task {
                                 do {
                                     let newId = UUID().uuidString
-                                    let newSquawk = SquawkModel(id: newId, tailNumber: tailNumber, squawkText: squawkText, dateText: "9/9/2001", organization: organization)
+                                    
+                                    let newSquawk = SquawkModel(id: newId, tailNumber: tailNumber, squawkText: squawkText, dateText: Date(), organization: organization)
                                     
                                     try await SquawkModelStore.shared.addSquawk(newSquawk)
                                 } catch {

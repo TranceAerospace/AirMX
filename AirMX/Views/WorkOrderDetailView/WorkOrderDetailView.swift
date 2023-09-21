@@ -20,7 +20,7 @@ struct WorkOrderDetailView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                Text(Helper.convert(toString: vm.workOrder.datePerformed.dateValue()))
+                Text(vm.workOrder.datePerformed.dateValue().formatted(date: .numeric, time: .omitted))
                     .font(.title2)
                     .bold()
                 

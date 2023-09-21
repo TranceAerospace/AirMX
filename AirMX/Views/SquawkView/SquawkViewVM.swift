@@ -60,10 +60,11 @@ final class SquawkViewVM {
                     print("No documents")
                     return
                 }
-                print(self.squawks.count)
+                
                 self.squawks = documents.compactMap { queryDocumentSnapshot -> SquawkModel? in
                     return try? queryDocumentSnapshot.data(as: SquawkModel.self)
                 }
+                
             })
     }
     

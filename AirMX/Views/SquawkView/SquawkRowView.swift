@@ -24,7 +24,7 @@ struct SquawkRowView: View {
                     .font(.body)
                     .strikethrough(squawkModel.completed)
                     .bold()
-                Text(squawkModel.dateText)
+                Text(squawkModel.dateText.formatted(date: .numeric, time: .omitted))
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
@@ -40,6 +40,6 @@ struct SquawkRowView: View {
 
 #Preview {
     Form {
-        SquawkRowView(squawkModel: .constant(SquawkModel(id: "", tailNumber: "N893WB", squawkText: "Stuff's Broken", dateText: "9/1/2010", organization: "@aci")))
+        SquawkRowView(squawkModel: .constant(SquawkModel(id: "", tailNumber: "N893WB", squawkText: "Stuff's Broken", organization: "@aci")))
     }
 }

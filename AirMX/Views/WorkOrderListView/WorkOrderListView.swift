@@ -14,20 +14,13 @@ struct WorkOrderListView: View {
     @FirestoreQuery var orders: [AircraftWorkOrder]
     
     
-    var groupedOrders: [String: [AircraftWorkOrder]] {
-        Dictionary(grouping: orders) { order in
-            Helper.convert(toString: order.datePerformed.dateValue())
-        }
-    }
-    
-    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.airMXBackground
                     .ignoresSafeArea()
                 VStack {
-                    if groupedOrders.isEmpty {
+                    if orders.isEmpty {
                         EmptyListView()
                     } else {
                         
@@ -40,11 +33,11 @@ struct WorkOrderListView: View {
                         .padding(.horizontal)
                         
                         if viewModel.selectedSort.rawValue == "Date" {
-                            displayListByDate()
+                            displayList(sortOption: .date)
                                 .shadow(radius: 2, x: 2, y: 2)
                                 .scrollContentBackground(.hidden)
                         } else if viewModel.selectedSort.rawValue == "Tail Number" {
-                            displayListByTailNumber()
+                            displayList(sortOption: .tailNumber)
                                 .shadow(radius: 2, x: 2, y: 2)
                                 .scrollContentBackground(.hidden)
                         }
@@ -67,47 +60,37 @@ struct WorkOrderListView: View {
                 }
                 
                 //.background(Color(.airMXBackground).ignoresSafeArea())
-            .tint(Color(.airMXBlack))
+                .tint(Color(.airMXBlack))
             }
         }
         
     }
     
-#warning("Fix/combine these.")
-    private func displayListByDate() -> some View {
-        List {
-            ForEach(groupedOrders.sorted(by: { $0.key > $1.key }), id: \.key) { key, value in
-                Section(header: Text(key)) {
-                    ForEach(value, id: \.self) { order in
-                        NavigationLink(destination: WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: order))) {
-                            WorkOrderRowView(workOrder: order)
-                        }
-                        .listRowSeparatorTint(Color(.airMXDarkGreen))
-                        .swipeActions {
-                            Button("Delete") {
-                                viewModel.delete(id: order.id)
-                            }
-                            .tint(.red)
-                        }
-                    }
+    
+    private func displayList(sortOption: SortOptions) -> some View {
+        let groupedData: [String: [AircraftWorkOrder]]
+        var sortedKeys: [String]
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        switch sortOption {
+            case .date:
+                groupedData = Dictionary(grouping: orders) { order in
+                    return dateFormatter.string(from: order.datePerformed.dateValue())
                 }
-            }
+                
+            case .tailNumber:
+                groupedData = Dictionary(grouping: orders, by: { $0.tailNumber })
         }
-    }
-    
-    
-    private func displayListByTailNumber() -> some View {
-        // Group orders by tailNumber
-        let groupedByTailNumber = Dictionary(grouping: orders, by: {$0.tailNumber})
         
-        // Sort the keys (tail numbers) alphabetically
-        let sortedKeys = groupedByTailNumber.keys.sorted()
+        sortedKeys = sortOption == .date ? groupedData.keys.sorted(by: >) : groupedData.keys.sorted()
         
         return List {
-            ForEach(sortedKeys, id: \.self) { tailNumber in
-                if let ordersForTailNumber = groupedByTailNumber[tailNumber] {
-                    Section(header: Text(tailNumber)) {
-                        ForEach(ordersForTailNumber, id: \.self) { order in
+            ForEach(sortedKeys, id: \.self) { key in
+                if let ordersForKey = groupedData[key] {
+                    Section(header: Text(key)) {
+                        ForEach(ordersForKey, id: \.self) { order in
                             NavigationLink(destination: WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: order))) {
                                 WorkOrderRowView(workOrder: order)
                             }

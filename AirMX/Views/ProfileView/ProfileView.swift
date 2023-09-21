@@ -13,55 +13,58 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            
-            VStack {
-                if let user = viewModel.user {
-                    profileDetails(user: user)
-                    
-                } else {
-                    Text("Loading Profile...")
-                }
-            }
-            .toolbar {
-                ToolbarItem {
-                    
-                    Button {
-                        viewModel.logOut()
-                    } label: {
-                        Text("\(Image(systemName: "capslock.fill")) Logout")
+            ZStack {
+                Color(.airMXBackground)
+                    .ignoresSafeArea()
+                VStack {
+                    if let user = viewModel.user {
+                        profileDetails(user: user)
                         
+                    } else {
+                        Text("Loading Profile...")
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Color(.airMXRed))
                 }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        viewModel.isEditing.toggle()
+                .toolbar {
+                    ToolbarItem {
                         
-                        if !viewModel.isEditing {
-                            Task {
-                                do {
-                                    try await viewModel.updateProfile(
-                                        name: viewModel.name,
-                                        organization: viewModel.organization)
-                                } catch {
-                                    print(error.localizedDescription)
+                        Button {
+                            viewModel.logOut()
+                        } label: {
+                            Text("\(Image(systemName: "capslock.fill")) Logout")
+                            
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color(.airMXRed))
+                    }
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            viewModel.isEditing.toggle()
+                            
+                            if !viewModel.isEditing {
+                                Task {
+                                    do {
+                                        try await viewModel.updateProfile(
+                                            name: viewModel.name,
+                                            organization: viewModel.organization)
+                                    } catch {
+                                        print(error.localizedDescription)
+                                    }
                                 }
                             }
+                            
+                        } label: {
+                            Text(viewModel.isEditing ? "\(Image(systemName: "lock.open")) Save" :
+                                    "\(Image(systemName: "lock.circle")) Edit Profile")
+                            .frame(width: 110)
                         }
-                        
-                    } label: {
-                        Text(viewModel.isEditing ? "\(Image(systemName: "lock.open")) Done" :
-                                "\(Image(systemName: "lock.circle")) Edit Profile")
-                        .frame(width: 110)
+                        .buttonStyle(.borderedProminent)
+                        .tint(viewModel.isEditing ? Color(.airMXGreen) : Color(.airMXRed))
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(viewModel.isEditing ? Color(.airMXGreen) : Color(.airMXRed))
                 }
-            }
             .navigationTitle("Profile")
+            }
             
-            .background(Color(.airMXBackground).ignoresSafeArea())
+            //.background(Color(.airMXBackground).ignoresSafeArea())
         }
         .onAppear {
             viewModel.fetchUser()
