@@ -62,21 +62,27 @@ struct LogInView: View {
                     }
                 }
                 .frame(width: 300)
+                .padding(.bottom, 20)
             
                 
                 
                 // MARK: - Create Account
                 VStack {
                     Text("New Around here?")
+                        .foregroundColor(Color(.airMXGreen))
                     Divider()
                         .frame(width: 175)
-                    NavigationLink("Create An Account") {
-                        RegisterView()
+                        .padding(.bottom, 4)
+                    NavigationLink(destination: RegisterView())  {
+                        Text("Create an Account")
+                            .bold()
+                            .padding(8)
+                            .background(Color.airMXDarkGreen)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .bold()
                 }
-                .foregroundColor(Color(.airMXGreen))
-                .padding(.bottom, 20)
+                
                 Spacer()
             }
             .background(Color(.airMXBackground))
