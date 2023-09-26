@@ -110,6 +110,11 @@ struct AddWorkOrderView: View {
                         Alert(title: Text("Error"), message: Text("Please fill in all fields to add the work order."))
                     }
                 }
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        hideKeyboard()
+                    }
+                }
             } //: Toolbar end
         }
     }

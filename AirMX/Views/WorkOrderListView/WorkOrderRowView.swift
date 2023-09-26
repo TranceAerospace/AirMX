@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseFirestore
-#warning("Still needs potential styling?")
+
 struct WorkOrderRowView: View {
     
     let workOrder: AircraftWorkOrder

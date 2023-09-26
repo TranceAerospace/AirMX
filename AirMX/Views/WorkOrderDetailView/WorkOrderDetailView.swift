@@ -12,6 +12,9 @@ struct WorkOrderDetailView: View {
     @Bindable var vm: WorkOrderDetailVM
     
     @Environment(\.dismiss) var dismiss
+    @FocusState private var focusedField: Field?
+    
+    @State private var renderedView: URL?
     
     var body: some View {
         
@@ -20,53 +23,89 @@ struct WorkOrderDetailView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                Text(vm.workOrder.datePerformed.dateValue().formatted(date: .numeric, time: .omitted))
-                    .font(.title2)
-                    .bold()
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Aircraft Hobbs: \(vm.workOrder.hobbs)")
-                    Text("Aircraft Cycles: \(vm.workOrder.cycles)")
-                    Text("Notes: \(vm.workOrder.workNotes)")
-                    
-                    
+                HStack {
+                    Text("Date Performed:")
+                    Text(vm.workOrder.datePerformed.dateValue().formatted(date: .numeric, time: .omitted))
                 }
-                .padding(.vertical, 8)
+                .foregroundStyle(.secondary)
+                .font(.title3)
+                .bold()
                 
-#warning("Extract this view")
                 Section {
-                    ForEach(vm.parts) { part in
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("Part Removed: ")
-                                Text(part.partNumberOff)
-                            }
-                            HStack {
-                                Text("Part Installed: ")
-                                Text(part.partNumberOn)
-                            }
-                            HStack {
-                                Text("S/N Removed: ")
-                                Text(part.serialNumberOff)
-                            }
-                            HStack {
-                                Text("S/N Installed: ")
-                                Text(part.serialNumberOn)
-                            }
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("Aircraft Hobbs:")
+                                
+                            TextField("Aircraft Hobbs", text: $vm.workOrder.hobbs)
+                                .textFieldStyle(.roundedBorder)
+                                .border(Color.airMXGreen.opacity(0.2), width: 2)
+                                .focused($focusedField, equals: .hobbs)
+                                .submitLabel(.next)
+                            
                         }
+                       
+                        HStack {
+                            Text("Aircraft Cycles:")
+                            TextField("Aircraft Cycles:", text: $vm.workOrder.cycles)
+                                .textFieldStyle(.roundedBorder)
+                                .border(Color.airMXGreen.opacity(0.2), width: 2)
+                                .focused($focusedField, equals: .cycles)
+                                .submitLabel(.next)
+                        }
+                        
+                        Spacer(minLength: 10)
+                        Text("Work Notes:")
+                            .underline()
+                        TextField("Work Performed", text: $vm.workOrder.workNotes, axis: .vertical)
+                            .textFieldStyle(.roundedBorder)
+                            .border(Color.airMXGreen.opacity(0.2), width: 2)
+                            .autocorrectionDisabled()
+                            .focused($focusedField, equals: .workNotes)
+    
+                        Spacer(minLength: 10)
+                        
+                        
                     }
-                    .padding(.vertical, 8)
+                    .padding(.horizontal)
                     
                 } header: {
+                    Text("Aircraft Info")
+                        .font(.title3)
+                        .bold()
+                        .underline()
+                        .padding(.top, 10)
+                }
+                
+                Section {
+                    if !vm.parts.isEmpty {
+                        ForEach(vm.parts) { part in
+                            PartsDetailView(part: part)
+                        }
+                        .padding(.vertical, 8)
+                    } else {
+                        Text("No Parts Changed")
+                            .padding(.vertical, 8)
+                    }
+                } header: {
                     Text("Parts Changed")
-                        .font(.title2)
+                        .font(.title3)
                         .bold()
                         .underline()
                 }
             }
-            
-            
-            
+            .onAppear {
+                renderedView = vm.render(importedView: WorkOrderPDFView(workOrder: vm.workOrder))
+            }
+            .onSubmit {
+                switch focusedField {
+                    case .hobbs:
+                        focusedField = .cycles
+                    case .cycles:
+                        focusedField = .workNotes
+                    default:
+                        focusedField = nil
+                }
+            }
             .navigationTitle(vm.workOrder.tailNumber)
             .alert("Delete Work Order", isPresented: $vm.showingDeleteAlert) {
                 Button("Delete", role: .destructive, action: deleteWorkOrder)
@@ -76,22 +115,50 @@ struct WorkOrderDetailView: View {
                 
             }
             .toolbar {
-                Button {
-                    vm.showingDeleteAlert = true
-                } label: {
-                    Image(systemName: "trash")
-                        .foregroundStyle(Color.airMXRed)
-                        .font(.title2)
+                ToolbarItem(placement: .topBarTrailing) {
+                    if let renderedView {
+                        ShareLink(item: (renderedView)) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundStyle(Color.airMXGreen)
+                                .font(.title3)
+                        }
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        vm.showingDeleteAlert = true
+                    } label: {
+                        Image(systemName: "trash")
+                            .foregroundStyle(Color.airMXRed)
+                            .font(.title3)
+                    }
+                }
+                
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button {
+                        hideKeyboard()
+                    } label: {
+                        Text("Done")
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
         }
     }
     
-#warning("Deleting from detail screen Not implemented")
+    //"Deleting from detail screen Not implemented"
     func deleteWorkOrder() {
-        
         dismiss()
     }
+    
+    enum Field {
+        case hobbs
+        case cycles
+        case workNotes
+    }
+    
     
     
     
@@ -99,7 +166,7 @@ struct WorkOrderDetailView: View {
 
 #Preview {
     NavigationStack {
-        WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: [Part(id: "1", partNumberOff: "13123", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646"), Part(id: "2", partNumberOff: "13124", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646")])))
+        WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "asddldjkfs;lkfjsa;flkjas;lfkjs;fkjs;lfjks;dklfjas;lkdjfsa;lkjfas;lkjdflskjfdkfjhrvnni492834u984uoairlaksjdfl;akjsfd;lksdajf\n29842304823p04982oliduja;lksjdff", parts: [Part(id: "1", partNumberOff: "13123", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646"), Part(id: "2", partNumberOff: "13124", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646")])))
     }
 }
 

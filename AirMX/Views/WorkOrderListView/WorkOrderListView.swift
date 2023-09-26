@@ -32,12 +32,8 @@ struct WorkOrderListView: View {
                         .pickerStyle(.segmented)
                         .padding(.horizontal)
                         
-                        if viewModel.selectedSort.rawValue == "Date" {
-                            displayList(sortOption: .date)
-                                .shadow(radius: 2, x: 2, y: 2)
-                                .scrollContentBackground(.hidden)
-                        } else if viewModel.selectedSort.rawValue == "Tail Number" {
-                            displayList(sortOption: .tailNumber)
+                        if let sortOption = SortOptions(rawValue: viewModel.selectedSort.rawValue) {
+                            displayList(sortOption: sortOption)
                                 .shadow(radius: 2, x: 2, y: 2)
                                 .scrollContentBackground(.hidden)
                         }
