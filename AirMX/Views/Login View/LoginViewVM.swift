@@ -18,19 +18,13 @@ final class LoginViewVM {
     var password = ""
     var errorMessage = ""
     
-    init() {
-        
+    // Log in user with email and password
+    @MainActor
+    func login() async throws {
+        guard validate() else { return }
+        try await AuthManager.shared.login(withEmail: email, password: password)
     }
     
-    // Log in user with email and password
-    func login() async throws {
-        guard validate() else {
-            return
-        }
-        
-        // Try to log in
-        try await AuthManager.shared.signInUser(email: email, password: password)
-    }
     
     private func validate() -> Bool {
         errorMessage = ""
@@ -50,17 +44,17 @@ final class LoginViewVM {
         return true
     }
     
-    enum AuthenticationError: Error {
-        case tokenError(message: String)
-    }
+//    enum AuthenticationError: Error {
+//        case tokenError(message: String)
+//    }
     
-    @MainActor
-    func signInWithGoogle() async throws {
-        let tokens = try await SignInWithGoogleHelper().signIn()
-        try await AuthManager.shared.signInWithGoogle(tokens: tokens)
-        
-        
-    }
+//    @MainActor
+//    func signInWithGoogle() async throws {
+//        let tokens = try await SignInWithGoogleHelper().signIn()
+//        try await AuthManager.shared.signInWithGoogle(tokens: tokens)
+//        
+//        
+//    }
     
     
 }

@@ -69,6 +69,6 @@ struct WorkOrderPDFView: View {
     }
 }
 
-#Preview {
-    WorkOrderPDFView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "Remove and replace R/H Landing Gear Actuator.", parts: [Part(id: "1", partNumberOff: "13123", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646"), Part(id: "2", partNumberOff: "13124", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646")]))
-}
+//#Preview {
+//    WorkOrderPDFView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "Remove and replace R/H Landing Gear Actuator.", parts: [Part(id: "1", partNumberOff: "13123", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646"), Part(id: "2", partNumberOff: "13124", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646")]))
+//}

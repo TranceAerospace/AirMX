@@ -6,22 +6,21 @@
 //
 
 import Foundation
+import Combine
 import FirebaseAuth
 
-#warning("Can not use @Observable, causes MainView to not swap after login")
+@Observable
 final class MainViewVM: ObservableObject {
-    @Published var currentUserId: String = ""
-    private var handler: AuthStateDidChangeListenerHandle?
+    var userSession: FirebaseAuth.User?
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
-        self.handler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
-            DispatchQueue.main.async {
-                self?.currentUserId = user?.uid ?? ""
-            }
-        }
+        setupSubscribers()
     }
     
-    public var isSignedIn: Bool {
-        return Auth.auth().currentUser != nil
+    private func setupSubscribers() {
+        AuthManager.shared.$userSession.sink { [weak self] userSession in
+            self?.userSession = userSession
+        }.store(in: &cancellables)
     }
 }

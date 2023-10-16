@@ -18,31 +18,9 @@ final class ProfileViewVM {
     var organization: String = ""
     var isEditing: Bool = false
     
-    init() {
-    }
-    
-    /*
-     func getUser() {
-     do {
-     user = try AuthManager.shared.getAuthenticatedUser()
-     
-     name = user?.name ?? ""
-     email = user?.emailAddress ?? ""
-     organization = user?.organization ?? ""
-     
-     } catch {
-     print(error)
-     }
-     }
-     */
-    
-    func logOut() {
-        do {
-            try AuthManager.shared.signOut()
-        } catch {
-            print(error)
-        }
-    }
+    init() {}
+
+
     
     func updateProfile(name displayName: String, organization: String) async throws {
         let db = Firestore.firestore()
@@ -84,7 +62,7 @@ final class ProfileViewVM {
                 DispatchQueue.main.async {
                     self?.user = user
                     self?.name = user.name
-                    self?.email = user.emailAddress
+                    self?.email = user.email
                     self?.organization = user.organization
                     //                    User(id: data["id"] as? String ?? "",
                     //                    name: data["displayName"] as? String ?? "",

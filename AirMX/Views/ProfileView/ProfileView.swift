@@ -28,7 +28,7 @@ struct ProfileView: View {
                     ToolbarItem {
                         
                         Button {
-                            viewModel.logOut()
+                            AuthManager.shared.signOut()
                         } label: {
                             Text("\(Image(systemName: "capslock.fill")) Logout")
                             

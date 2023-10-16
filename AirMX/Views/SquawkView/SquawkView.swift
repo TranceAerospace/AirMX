@@ -48,7 +48,7 @@ struct SquawkView: View {
                         }
                     }
                     .fullScreenCover(isPresented: $viewModel.goToAddWorkOrder) {
-                        AddWorkOrderView(viewModel: AddWorkOrderViewVM(tailNumber: viewModel.selectedSquawkTailNumber ?? ""))
+                        AddWorkOrderView()
                     }
                     .task {
                         do {

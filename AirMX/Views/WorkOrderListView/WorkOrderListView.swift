@@ -10,9 +10,7 @@ import FirebaseFirestoreSwift
 // TODO: - Design a custom row
 struct WorkOrderListView: View {
     
-    @Bindable var viewModel: WorkOrderListViewVM
-    @FirestoreQuery var orders: [AircraftWorkOrder]
-    
+    @State var viewModel =  WorkOrderListViewVM()
     
     var body: some View {
         NavigationStack {
@@ -20,7 +18,7 @@ struct WorkOrderListView: View {
                 Color.airMXBackground
                     .ignoresSafeArea()
                 VStack {
-                    if orders.isEmpty {
+                    if viewModel.workOrders.isEmpty {
                         EmptyListView()
                     } else {
                         
@@ -39,7 +37,9 @@ struct WorkOrderListView: View {
                         }
                     }
                 }
-                
+                .onFirstAppear {
+                    viewModel.addListenerForWorkOrders()
+                }
                 .navigationTitle("Aircraft Work Orders")
                 .toolbar {
                     Button {
@@ -55,7 +55,6 @@ struct WorkOrderListView: View {
                     AddWorkOrderView()
                 }
                 
-                //.background(Color(.airMXBackground).ignoresSafeArea())
                 .tint(Color(.airMXBlack))
             }
         }
@@ -72,12 +71,12 @@ struct WorkOrderListView: View {
         
         switch sortOption {
             case .date:
-                groupedData = Dictionary(grouping: orders) { order in
+                groupedData = Dictionary(grouping: viewModel.workOrders) { order in
                     return dateFormatter.string(from: order.datePerformed.dateValue())
                 }
                 
             case .tailNumber:
-                groupedData = Dictionary(grouping: orders, by: { $0.tailNumber })
+                groupedData = Dictionary(grouping: viewModel.workOrders, by: { $0.tailNumber })
         }
         
         sortedKeys = sortOption == .date ? groupedData.keys.sorted(by: >) : groupedData.keys.sorted()
@@ -92,7 +91,7 @@ struct WorkOrderListView: View {
                             }
                             .swipeActions {
                                 Button("Delete") {
-                                    viewModel.delete(id: order.id)
+                                    //viewModel.delete(id: order.id)
                                 }
                                 .tint(.red)
                             }
@@ -107,6 +106,5 @@ struct WorkOrderListView: View {
 }
 
 #Preview {
-    WorkOrderListView(viewModel: WorkOrderListViewVM(userId: "LEaWBY82ciPnFDkxaAo5fKFfCpA2"), orders: FirestoreQuery(collectionPath: "users/LEaWBY82ciPnFDkxaAo5fKFfCpA2/workOrders", predicates: [.order(by:"datePerformed", descending: true)]))
-    
+    WorkOrderListView()
 }

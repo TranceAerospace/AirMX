@@ -86,6 +86,9 @@ struct AddSquawkView: View {
                     }
                 }
             }
+            .onTapGesture {
+                hideKeyboard()
+            }
             .background(Color(.airMXBackground).ignoresSafeArea())
         }
     }

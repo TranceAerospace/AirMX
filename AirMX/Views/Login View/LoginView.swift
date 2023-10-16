@@ -10,8 +10,7 @@ import GoogleSignIn
 import GoogleSignInSwift
 
 struct LogInView: View {
-    
-    @Bindable var viewModel = LoginViewVM()
+    @State var viewModel = LoginViewVM()
     
     var body: some View {
         NavigationStack {
@@ -29,18 +28,19 @@ struct LogInView: View {
                         }
                         TextField("Email Address", text: $viewModel.email)
                             .textFieldStyle(DefaultTextFieldStyle())
-                            .textInputAutocapitalization(.none)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .keyboardType(.emailAddress)
+                            .textContentType(.emailAddress)
+                            .submitLabel(.next)
+                        
                         SecureField("Password", text: $viewModel.password)
                             .textFieldStyle(DefaultTextFieldStyle())
+                            .textContentType(.password)
+                            
                         
                         AirMXButton(title: "Log In", background: Color(.airMXDarkGreen)) {
-                            Task {
-                                do {
-                                    try await viewModel.login()
-                                } catch {
-                                    print(error.localizedDescription)
-                                }
-                            }
+                            Task { try await viewModel.login() }
                         }
                         .shadow(radius: 2, x: 4, y: 4)
                     
@@ -52,17 +52,17 @@ struct LogInView: View {
                 .offset(y: -50)
                 
                 //MARK: Temp Google Sign In Button
-                GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
-                    Task {
-                        do {
-                            try await viewModel.signInWithGoogle()
-                        } catch {
-                            print(error)
-                        }
-                    }
-                }
-                .frame(width: 300)
-                .padding(.bottom, 20)
+//                GoogleSignInButton(scheme: .light, style: .wide, state: .normal) {
+//                    Task {
+//                        do {
+//                            try await viewModel.signInWithGoogle()
+//                        } catch {
+//                            print(error)
+//                        }
+//                    }
+//                }
+//                .frame(width: 300)
+//                .padding(.bottom, 20)
             
                 
                 

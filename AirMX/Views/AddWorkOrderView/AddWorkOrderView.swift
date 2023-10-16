@@ -63,6 +63,9 @@ struct AddWorkOrderView: View {
                         .underline()
                 }
             }
+            .onTapGesture {
+                hideKeyboard()
+            }
             .scrollContentBackground(.hidden)
             .padding(.bottom)
             .autocorrectionDisabled(true)
@@ -71,40 +74,42 @@ struct AddWorkOrderView: View {
             .background(Color(.airMXBackground).ignoresSafeArea())
             
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button() {
                         dismiss()
                     } label: {
-                        Text("Cancel")
-                            .padding()
-                            .frame(width: 150, height: 44)
-                            .background(.airMXRed)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .shadow(radius: 2, x: 4, y: 4)
+                        Image(systemName: "trash")
+                            .foregroundColor(.airMXRed)
+                            .font(.title2)
+//                        Text("Cancel")
+//                            .padding()
+//                            .frame(width: 150, height: 44)
+//                            .background(.airMXRed)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(8)
+//                            .shadow(radius: 2, x: 4, y: 4)
                     }
                 }
                 
-                ToolbarItem(placement: .bottomBar) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
-                        if viewModel.canSave {
-                            viewModel.save()
-                            //newItemPresented = false
+                        Task {
+                            try await viewModel.uploadWorkOrder()
                             dismiss()
-                            
-                        } else {
-                            viewModel.showAlert = true
                         }
-                        
                     } label: {
-                        Text("Save")
-                            .padding()
-                            .frame(width: 150, height: 44)
-                            .background(.airMXGreen)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .shadow(radius: 2, x: 4, y: 4)
+                        Image(systemName: "doc.badge.plus")
+                            .foregroundColor(.airMXGreen)
+                            .font(.title2)
+
+
+//                        Text("Save")
+//                            .padding()
+//                            .frame(width: 150, height: 44)
+//                            .background(.airMXGreen)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(8)
+//                            .shadow(radius: 2, x: 4, y: 4)
                     }
                     .alert(isPresented: $viewModel.showAlert) {
                         Alert(title: Text("Error"), message: Text("Please fill in all fields to add the work order."))

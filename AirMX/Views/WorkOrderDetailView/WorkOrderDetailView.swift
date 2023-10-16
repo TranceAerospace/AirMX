@@ -12,7 +12,6 @@ struct WorkOrderDetailView: View {
     @Bindable var vm: WorkOrderDetailVM
     
     @Environment(\.dismiss) var dismiss
-    @FocusState private var focusedField: Field?
     
     @State private var renderedView: URL?
     
@@ -23,6 +22,7 @@ struct WorkOrderDetailView: View {
                 .ignoresSafeArea()
             
             ScrollView {
+                
                 HStack {
                     Text("Date Performed:")
                     Text(vm.workOrder.datePerformed.dateValue().formatted(date: .numeric, time: .omitted))
@@ -35,33 +35,34 @@ struct WorkOrderDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
                             Text("Aircraft Hobbs:")
-                                
+                            
                             TextField("Aircraft Hobbs", text: $vm.workOrder.hobbs)
                                 .textFieldStyle(.roundedBorder)
+                                .keyboardType(.decimalPad)
                                 .border(Color.airMXGreen.opacity(0.2), width: 2)
-                                .focused($focusedField, equals: .hobbs)
-                                .submitLabel(.next)
+                                
                             
                         }
-                       
+                        
                         HStack {
                             Text("Aircraft Cycles:")
                             TextField("Aircraft Cycles:", text: $vm.workOrder.cycles)
                                 .textFieldStyle(.roundedBorder)
+                                .keyboardType(.decimalPad)
                                 .border(Color.airMXGreen.opacity(0.2), width: 2)
-                                .focused($focusedField, equals: .cycles)
-                                .submitLabel(.next)
+                               
                         }
                         
                         Spacer(minLength: 10)
                         Text("Work Notes:")
                             .underline()
                         TextField("Work Performed", text: $vm.workOrder.workNotes, axis: .vertical)
+                            .lineLimit(4)
                             .textFieldStyle(.roundedBorder)
                             .border(Color.airMXGreen.opacity(0.2), width: 2)
                             .autocorrectionDisabled()
-                            .focused($focusedField, equals: .workNotes)
-    
+                        
+                        
                         Spacer(minLength: 10)
                         
                         
@@ -95,16 +96,6 @@ struct WorkOrderDetailView: View {
             }
             .onAppear {
                 renderedView = vm.render(importedView: WorkOrderPDFView(workOrder: vm.workOrder))
-            }
-            .onSubmit {
-                switch focusedField {
-                    case .hobbs:
-                        focusedField = .cycles
-                    case .cycles:
-                        focusedField = .workNotes
-                    default:
-                        focusedField = nil
-                }
             }
             .navigationTitle(vm.workOrder.tailNumber)
             .alert("Delete Work Order", isPresented: $vm.showingDeleteAlert) {
@@ -153,22 +144,14 @@ struct WorkOrderDetailView: View {
         dismiss()
     }
     
-    enum Field {
-        case hobbs
-        case cycles
-        case workNotes
-    }
-    
-    
-    
     
 }
 
-#Preview {
-    NavigationStack {
-        WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "asddldjkfs;lkfjsa;flkjas;lfkjs;fkjs;lfjks;dklfjas;lkdjfsa;lkjfas;lkjdflskjfdkfjhrvnni492834u984uoairlaksjdfl;akjsfd;lksdajf\n29842304823p04982oliduja;lksjdff", parts: [Part(id: "1", partNumberOff: "13123", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646"), Part(id: "2", partNumberOff: "13124", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646")])))
-    }
-}
+//#Preview {
+//    NavigationStack {
+//        WorkOrderDetailView(vm: WorkOrderDetailVM(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "asddldjkfs;lkfjsa;flkjas;lfkjs;fkjs;lfjks;dklfjas;lkdjfsa;lkjfas;lkjdflskjfdkfjhrvnni492834u984uoairlaksjdfl;akjsfd;lksdajf\n29842304823p04982oliduja;lksjdff", parts: [Part(id: "1", partNumberOff: "13123", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646"), Part(id: "2", partNumberOff: "13124", serialNumberOff: "5664", partNumberOn: "1233123", serialNumberOn: "45646")])))
+//    }
+//}
 
 
 

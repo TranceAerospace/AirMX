@@ -16,37 +16,11 @@ final class RegisterViewVM {
     var email = ""
     var password = ""
     
-    init() {}
     
-    func register() async {
-        guard validate() else {
-            return
-        }
-        do {
-            let newUser = try await AuthManager.shared.createUser(email: email, password: password, name: name)
-            let userID = newUser.id
-            self.insertUserRecord(id: userID, name: newUser.name, email: newUser.emailAddress)
-        } catch {
-            print("Error registering user: \(error.localizedDescription)")
-        }
-    }
-    
-    private func insertUserRecord(id: String, name: String, email: String) {
-        let newUser = User(id: id, name: name, emailAddress: email)
-        
-        do {
-            let db = Firestore.firestore()
-            
-            try db.collection("users").document(id).setData(from: newUser) { error in
-                if let error {
-                    print("Error saving user: \(error.localizedDescription)")
-                } else {
-                    print("User saved successfully")
-                }
-            }
-        } catch {
-            print("Error encoding user")
-        }
+    @MainActor
+    func createUser() async throws {
+        guard validate() else { return }
+        try await AuthManager.shared.createUser(withEmail: email, password: password, name: name)
     }
     
     private func validate() -> Bool {

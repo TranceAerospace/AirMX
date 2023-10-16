@@ -33,7 +33,7 @@ struct WorkOrderRowView: View {
     }
 }
 
-#Preview {
-    WorkOrderRowView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
-        .previewLayout(.fixed(width: 300, height: 100))
-}
+//#Preview {
+//    WorkOrderRowView(workOrder: AircraftWorkOrder(id: "", hobbs: "1999", cycles: "2999", tailNumber: "N1211A", datePerformed: Timestamp(date: Date()), workNotes: "No notes", parts: nil))
+//        .previewLayout(.fixed(width: 300, height: 100))
+//}

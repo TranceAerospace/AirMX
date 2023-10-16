@@ -17,20 +17,24 @@ struct RegisterView: View {
             Form {
                 Section {
                     TextField("Full Name", text: $viewModel.name)
+                        .foregroundStyle(.airMXBlack)
                         .textFieldStyle(DefaultTextFieldStyle())
+                        .autocorrectionDisabled()
                     
                     TextField("Email Address", text: $viewModel.email)
+                        .foregroundStyle(.airMXBlack)
                         .textFieldStyle(DefaultTextFieldStyle())
-                        .textInputAutocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                     
                     SecureField("Password", text: $viewModel.password)
+                        .foregroundStyle(.airMXBlack)
                         .textFieldStyle(DefaultTextFieldStyle())
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
                     
                     AirMXButton(title: "Create Account", background: Color(.airMXDarkGreen)) {
-                        Task {
-                            await viewModel.register()
-                        }
+                        Task { try await viewModel.createUser() }
                     }
                     .shadow(radius: 2, x: 4, y: 4)
                 }

@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Combine
 
 /// ViewModel for list of items view
 /// Primary Tab
@@ -17,26 +18,61 @@ final class WorkOrderListViewVM {
     var sortMethod = 0
     
     var selectedSort: SortOptions = .date
-
-    private let userId: String
+    var workOrders = [AircraftWorkOrder]()
+    private var cancellables = Set<AnyCancellable>()
     
-    
-    init(userId: String) {
-        self.userId = userId
+    init() {
+        //Task { try await fetchWorkOrders() }
     }
+    
+//    @MainActor
+//    func fetchWorkOrders() async throws {
+//        print("fetching work orders in vm")
+//        self.workOrders = try await WorkOrderService.fetchWorkOrders()
+//        //try await fetchUserDataForThreads()
+//    }
+    
+    @MainActor
+    func addListenerForWorkOrders() {
+        WorkOrderService.shared.addListenerForWorkOrders()
+            .sink { completion in
+                
+            } receiveValue: { [weak self] workOrders in
+                self?.workOrders = workOrders
+            }
+            .store(in: &cancellables)
+    }
+    
+//    private func fetchUserDataForThreads() async throws {
+//        for i in 0 ..< threads.count {
+//            let thread = threads[i]
+//            let ownerUid = thread.ownerUid
+//            
+//            let threadUser =  try await UserService.fetchUser(withUid: ownerUid)
+//            
+//            threads[i].user = threadUser
+//        }
+//    }
+    
+    //private let userId: String
+    
+    
+//    init(userId: String) {
+//        self.userId = userId
+//    }
     
     
     /// Delete list item
     /// - Parameter id: Item id to delete
-    func delete(id: String) {
-        let db = Firestore.firestore()
-        
-        db.collection("users")
-            .document(userId)
-            .collection("workOrders")
-            .document(id)
-            .delete()
-    }
+//    func delete(id: String) {
+//        let db = Firestore.firestore()
+//        
+//        db.collection("users")
+//            .document(userId)
+//            .collection("workOrders")
+//            .document(id)
+//            .delete()
+//    }
 }
 
 enum SortOptions: String, CaseIterable, Identifiable {
