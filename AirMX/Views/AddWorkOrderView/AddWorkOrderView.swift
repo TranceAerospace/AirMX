@@ -24,6 +24,7 @@ struct AddWorkOrderView: View {
                         .keyboardType(.decimalPad)
                 } header: {
                     Text("Aircraft Info")
+                        .fontWeight(.semibold)
                         .underline()
                 }
                 
@@ -31,6 +32,7 @@ struct AddWorkOrderView: View {
                     TextEditor(text: $viewModel.workNotes)
                 } header: {
                     Text("Enter Work Performed Below")
+                        .fontWeight(.semibold)
                         .underline()
                 }
                 
@@ -38,6 +40,7 @@ struct AddWorkOrderView: View {
                 Section {
                     if viewModel.parts.isEmpty {
                         Text("Add a part to see them listed here.")
+                            .font(.subheadline)
                             .foregroundStyle(Color.gray)
                     } else {
                         List(viewModel.parts) { part in
@@ -49,6 +52,7 @@ struct AddWorkOrderView: View {
                         viewModel.showPartsSheet.toggle()
                     } label: {
                         Label("Add Part", systemImage: "plus.circle.fill")
+                            .fontWeight(.semibold)
                             .foregroundStyle(.airMXGreen)
                     }
                     .sheet(isPresented: $viewModel.showPartsSheet) {
@@ -60,6 +64,7 @@ struct AddWorkOrderView: View {
                     
                 } header: {
                     Text("Parts")
+                        .fontWeight(.semibold)
                         .underline()
                 }
             }
@@ -78,16 +83,17 @@ struct AddWorkOrderView: View {
                     Button() {
                         dismiss()
                     } label: {
-                        Image(systemName: "trash")
-                            .foregroundColor(.airMXRed)
-                            .font(.title2)
-//                        Text("Cancel")
-//                            .padding()
-//                            .frame(width: 150, height: 44)
-//                            .background(.airMXRed)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(8)
-//                            .shadow(radius: 2, x: 4, y: 4)
+//                        Image(systemName: "trash")
+//                            .foregroundColor(.airMXRed)
+//                            .font(.title2)
+                        Text("Cancel")
+                            .fontWeight(.semibold)
+                            .padding()
+                            .frame(width: 120, height: 32)
+                            .background(.airMXRed)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .shadow(radius: 2, x: 2, y: 2)
                     }
                 }
                 
@@ -98,18 +104,19 @@ struct AddWorkOrderView: View {
                             dismiss()
                         }
                     } label: {
-                        Image(systemName: "doc.badge.plus")
-                            .foregroundColor(.airMXGreen)
-                            .font(.title2)
+//                        Image(systemName: "doc.badge.plus")
+//                            .foregroundColor(.airMXGreen)
+//                            .font(.title2)
 
 
-//                        Text("Save")
-//                            .padding()
-//                            .frame(width: 150, height: 44)
-//                            .background(.airMXGreen)
-//                            .foregroundColor(.white)
-//                            .cornerRadius(8)
-//                            .shadow(radius: 2, x: 4, y: 4)
+                        Text("Save")
+                            .fontWeight(.semibold)
+                            .padding()
+                            .frame(width: 120, height: 32)
+                            .background(.airMXGreen)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .shadow(radius: 2, x: 2, y: 2)
                     }
                     .alert(isPresented: $viewModel.showAlert) {
                         Alert(title: Text("Error"), message: Text("Please fill in all fields to add the work order."))
