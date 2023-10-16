@@ -13,7 +13,7 @@ struct EmptyListView: View {
         VStack(alignment: .center) {
             HStack {
                 Text("Tap the ")
-                Image(systemName: "plus")
+                Image(systemName: "doc.badge.plus")
                     .foregroundColor(.airMXGreen)
                 Text("at the top")
                 Image(systemName: "arrow.turn.right.up")

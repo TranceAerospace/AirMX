@@ -21,7 +21,7 @@ struct AirMXButton: View {
                     .foregroundColor(background)
                 Text(title)
                     .foregroundColor(.white)
-                    .bold()
+                    .fontWeight(.semibold)
             }
         }
         .padding()

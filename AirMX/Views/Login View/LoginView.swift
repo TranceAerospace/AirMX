@@ -42,12 +42,12 @@ struct LogInView: View {
                         AirMXButton(title: "Log In", background: Color(.airMXDarkGreen)) {
                             Task { try await viewModel.login() }
                         }
-                        .shadow(radius: 2, x: 4, y: 4)
+                        .shadow(radius: 2, x: 2, y: 2)
                     
                     }
                 }
                 .frame(width: 400, height: 260)
-                .shadow(radius: 5, x: 5, y: 5)
+                .shadow(radius: 4, x: 4, y: 4)
                 .scrollContentBackground(.hidden)
                 .offset(y: -50)
                 
@@ -75,11 +75,13 @@ struct LogInView: View {
                         .padding(.bottom, 4)
                     NavigationLink(destination: RegisterView())  {
                         Text("Create an Account")
-                            .bold()
+                            .fontWeight(.semibold)
+                            .frame(width: 175, height: 21)
                             .padding(8)
                             .background(Color.airMXDarkGreen)
                             .foregroundColor(.white)
                             .cornerRadius(10)
+                            .shadow(radius: 2, x: 2, y: 2)
                     }
                 }
                 
